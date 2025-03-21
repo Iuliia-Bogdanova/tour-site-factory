@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фабрика турсайтов</title>
+  <link rel="preload" href="assets/fonts/UbuntuSans-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="assets/fonts/UbuntuSans-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="assets/fonts/Raleway-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="assets/fonts/RobotoSlab-Black.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="assets/fonts/Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="template/css/reset.css">
+  <link rel="stylesheet" href="template/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="template/lib/swiper/swiper-bundle.css">
+  <link rel="stylesheet" href="template/css/ui.css">
+  <link rel="stylesheet" href="template/css/utility.css">
+  <link rel="stylesheet" href="template/css/mobile-panel.css" media="all">
+  <link rel="stylesheet" href="template/css/common.css">
+  <link rel="stylesheet" href="template/css/slider.css">
+</head>
+<body>
+  <svg width="0" height="0" class="visually-hidden">
+    <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" id="icon-whatsapp">
+      <rect width="32" height="32" rx="16"></rect>
+      <path fill="currentColor" d="M22.341 9.65A8.343 8.343 0 0 0 16.43 7.2c-4.624 0-8.37 3.733-8.37 8.342 0 1.458.41 2.916 1.112 4.141L8 24l4.449-1.167a8.558 8.558 0 0 0 3.98.992c4.625 0 8.371-3.733 8.371-8.342-.059-2.158-.878-4.258-2.459-5.833Zm-1.873 8.867c-.175.466-.995.933-1.405.991a3.28 3.28 0 0 1-1.287-.058c-.293-.117-.703-.233-1.171-.467-2.107-.875-3.454-2.975-3.57-3.15-.118-.116-.879-1.108-.879-2.158 0-1.05.527-1.517.702-1.75.176-.233.41-.233.586-.233h.41c.117 0 .292-.059.468.35.176.408.585 1.458.644 1.516a.37.37 0 0 1 0 .35c-.059.117-.117.234-.234.35-.117.117-.234.292-.293.35-.117.117-.234.234-.117.409.117.233.527.875 1.17 1.458.82.7 1.464.933 1.698 1.05.234.117.351.058.468-.058.118-.117.527-.584.644-.817.117-.233.293-.175.469-.117.175.059 1.229.584 1.405.7.234.117.35.175.41.234.058.175.058.583-.118 1.05Z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" id="icon-telegram">
+      <rect width="32" height="32" rx="16"></rect>
+      <path fill="currentColor" d="m22.4 10.082-2.404 12.552s-.337.87-1.26.453l-5.548-4.405-.026-.013c.75-.697 6.56-6.107 6.814-6.352.393-.38.15-.606-.307-.32l-8.583 5.645-3.312-1.153s-.52-.192-.57-.61c-.052-.418.587-.644.587-.644l13.5-5.484s1.11-.505 1.11.33Z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 42 42" id="icon-phone">
+      <rect width="42" height="42" rx="21"></rect>
+      <path fill="currentColor" d="M11 25.956v3a2 2 0 0 0 2.18 2 19.791 19.791 0 0 0 8.63-3.07 19.502 19.502 0 0 0 6-6 19.791 19.791 0 0 0 3.07-8.67 2.002 2.002 0 0 0-1.99-2.18h-3a2 2 0 0 0-2 1.72c-.126.96-.36 1.903-.7 2.81a2 2 0 0 0 .45 2.11l1.27 1.27a16.001 16.001 0 0 1-6 6l-1.27-1.27a2 2 0 0 0-2.11-.45c-.907.338-1.85.573-2.81.7a2 2 0 0 0-1.72 2.03Z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" id="icon-arrow">
+      <path fill="currentColor" d="M4.05 15h21.59l-5.3-5.29a1.004 1.004 0 1 1 1.42-1.42l7 7a1 1 0 0 1 .19.3.3.3 0 0 1 0 .1c.027.08.044.165.05.25V16a.85.85 0 0 1-.06.31.85.85 0 0 1-.19.3l-7 7a1.002 1.002 0 0 1-1.639-.325 1 1 0 0 1 .219-1.095L25.64 17H4.05a1 1 0 0 1 0-2Z"></path>
+    </symbol>
+  </svg>
+  <!-- Header -->
+  <header class="header">
+      <div class="header__top">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <a href="/" class="header__logo d-flex">
+                <picture class="header__logo">
+                  <source media="(max-width: 479px)" srcset="assets/images/logo.png" width="208" height="36">
+                  <source media="(min-width: 480px)" srcset="assets/images/logo-desktop.png" width="345" height="58">
+                  <img src="assets/images/logo.png" alt="Фабрика турсайтов" width="208" height="36">
+              </picture>
+              </a>
+            </div>
+            <ul class="header__contacts-list d-flex">
+              <li>
+                <ul class="header__social-list d-flex">
+                  <li>
+                    <a href="#" target="_blank" class="icon-link icon-social icon-social--telegram transform-active" title="Перейти в Telegram">
+                      <svg class="icon" width="32" height="32"><use xlink:href="#icon-telegram"></use></svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank" class="icon-link icon-social icon-social--whatsapp transform-active" title="Перейти в WhatsApp">
+                      <svg class="icon" width="32" height="32"><use xlink:href="#icon-whatsapp"></use></svg>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul class="header__phone-list d-flex">
+                  <li class="header__phone d-flex flex-column align-items-center text-center">
+                    <a href="tel:+74956385470" class="link-action hover-accent" title="Позвонить +7 495 638-54-70">+7 495 638-54-70</a>
+                    <span class="text-muted align-self-responsive">многоканальный</span>
+                  </li>
+                  <li class="header__phone d-flex flex-column align-items-center text-center">
+                      <a href="tel:88006385470" class="link-action hover-accent" title="Позвонить 8 800 638-54-70">8 800 638-54-70</a>
+                      <span class="text-muted align-self-responsive">бесплатная линия</span>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="tel:88006385470" class="icon-link link-action  icon-social icon-social--phone no-select transform-active" type="button" aria-label="Выбрать номер для звонка">
+                  <svg class="icon" width="42" height="42"><use xlink:href="#icon-phone"></use></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="nav-bar mp__nav-panel mp__nav-panel_main">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav class="nav">
+                <ul class="nav__list d-flex nav__list--horizontal">
+                  <li class="nav__item"><a href="index.html" class="nav__link link-action text-uppercase hover-accent">Услуги и&nbsp;цены</a></li>
+                  <li class="nav__item"><a href="index.html" class="nav__link link-action text-uppercase hover-accent">По&nbsp;типам бизнеса</a></li>
+                  <li class="nav__item"><a href="index.html" class="nav__link link-action text-uppercase hover-accent">Портфолио и&nbsp;отзывы</a></li>
+                  <li class="nav__item"><a href="index.html" class="nav__link link-action text-uppercase hover-accent">Обучение</a></li>
+                  <li class="nav__item"><a href="index.html" class="nav__link link-action text-uppercase hover-accent">О&nbsp;компании</a></li>
+                  <li class="nav__item"><a href="index.html" class="nav__link nav__link--contacts link-action text-uppercase hover-accent">Контакты</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+  <!-- Header End -->
+
+  <!-- Main -->
+  <main>
+    <h1 class="visually-hidden">Фабрика турсайтов. Разработка сайтов и продвижение</h1>
+    <!-- Slider -->
+    <section class="slider bg-secondary">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="row">
+                    <div class="slider__text-wrapper d-flex flex-column align-items-start rg-1 col-12 col-md-7 col-lg-6 col-xl-8 text-body-wrapper">
+                      <h2 class="title-primary">Сайт туроператора</h2>
+                      <p class="text-body">Продающие карточки тура с&nbsp;маршрутом, поиск по&nbsp;своим турам</p>
+                      <a href="#" class="btn btn-primary no-select">Подробнее</a>
+                    </div>
+                    <div class="slider__image-wrapper col-12 col-md-5 col-lg-6 col-xl-4 d-none d-md-block">
+                      <img src="assets/images/slider/slider-tour-operator.png" width="302px" height="380px" alt="Пример сайта туроператора">
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="row">
+                    <div class="slider__text-wrapper d-flex flex-column align-items-start rg-1 col-12 col-md-7 col-lg-6 col-xl-8 text-body-wrapper">
+                      <h2 class="title-primary">Сайт турфирмы</h2>
+                      <p class="text-body">Стандартная + мобильная версии. 40&nbsp;лендингов внутри, удобная админка, адаптирован под&nbsp;мобильные и&nbsp;вывод в&nbsp;Яндекс и&nbsp;Google, блоки куда поехать</p>
+                      <a href="#" class="btn btn-primary no-select">Подробнее</a>
+                    </div>
+                    <div class="slider__image-wrapper col-12 col-md-5 col-lg-6 col-xl-4 d-none d-md-block">
+                      <img src="assets/images/slider/slider-tour-company.png" width="302px" height="380px" alt="Пример сайта">
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="row">
+                    <div class="slider__text-wrapper rg-1 d-flex flex-column align-items-start rg-1  col-12 col-md-7 col-lg-6 col-xl-8 text-body-wrapper">
+                      <h2 class="title-primary">Сайт салона красоты</h2>
+                      <p class="text-body">Сильная структура для вывода сайта в&nbsp;Яндекс, все блоки нужные салону красоты</p>
+                      <a href="#" class="btn btn-primary no-select">Подробнее</a>
+                    </div>
+                    <div class="slider__image-wrapper col-12 col-md-5 col-lg-6 col-xl-4 d-none d-md-block">
+                      <img src="assets/images/slider/slider-beauty-salon.png" width="302px" height="380px" alt="Пример сайта">
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="row">
+                    <div class="slider__text-wrapper rg-1 d-flex flex-column align-items-start rg-1 col-12 col-md-7 col-lg-6 col-xl-8 text-body-wrapper">
+                      <h2 class="title-primary">Сайт отеля</h2>
+                      <p class="text-body">Шахматка цен под капотом, он-лайн расчет проживания и&nbsp;бронирования</p>
+                      <a href="#" class="btn btn-primary no-select">Подробнее</a>
+                    </div>
+                    <div class="slider__image-wrapper col-12 col-md-5 col-lg-6 col-xl-4 d-none d-md-block">
+                      <img src="assets/images/slider/slider-hotel.png" width="302px" height="380px" alt="Пример сайта">
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="row">
+                    <div class="slider__text-wrapper rg-1 d-flex flex-column align-items-start rg-1  col-12 col-md-7 col-lg-6 col-xl-8 text-body-wrapper">
+                      <h2 class="title-primary">Сайт ресторана</h2>
+                      <p class="text-body">Содержит модули событий, меню легко заводится из&nbsp;админки, онлайн расчет и&nbsp;заказа прямо с&nbsp;сайта</p>
+                      <a href="#" class="btn btn-primary no-select">Подробнее</a>
+                    </div>
+                    <div class="slider__image-wrapper col-12 col-md-5 col-lg-6 col-xl-4 d-none d-md-block">
+                      <img src="assets/images/slider/slider-restaurant.png" width="302px" height="380px" alt="Пример сайта">
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="row">
+                    <div class="slider__text-wrapper rg-1 d-flex flex-column align-items-start rg-1  col-12 col-md-7 col-lg-6 col-xl-8 text-body-wrapper">
+                      <h2 class="title-primary">Сайт автосервиса</h2>
+                      <p class="text-body">Детально проработанная структура, чтобы выйти в&nbsp;Яндекс. Все необходимые разделы. Разворот под ключ за&nbsp;3&nbsp;недели!</p>
+                      <a href="#" class="btn btn-primary no-select">Подробнее</a>
+                    </div>
+                    <div class="slider__image-wrapper col-12 col-md-5 col-lg-6 col-xl-4 d-none d-md-block">
+                      <img src="assets/images/slider/slider-autoservice.png" width="302px" height="380px" alt="Пример сайта">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev d-none d-md-flex">
+            <svg class="icon" width="32" height="32"><use xlink:href="#icon-arrow"></use></svg>
+          </div>
+          <div class="swiper-button-next d-none d-md-flex">
+            <svg class="icon" width="32" height="32"><use xlink:href="#icon-arrow"></use></svg>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Slider End -->
+  </main>
+  <!-- Main End -->
+
+  <!-- Footer -->
+  <footer>
+  </footer>
+  <!-- Footer End -->
+  <script src="template/lib/swiper/swiper-bundle.min.js"></script>
+  <script src="template/js/Mobile-panel.js"></script>
+  <script src="template/js/main.js"></script>
+</body>
+</html>
