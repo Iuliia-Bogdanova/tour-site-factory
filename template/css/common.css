@@ -1,287 +1,287 @@
 /* Raleway */
 @font-face {
-  font-family: 'Raleway';
-  src: url('../../assets/fonts/Raleway-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Raleway";
+    src: url("../../assets/fonts/Raleway-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('../../assets/fonts/Raleway-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Raleway";
+    src: url("../../assets/fonts/Raleway-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('../../assets/fonts/Raleway-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Raleway";
+    src: url("../../assets/fonts/Raleway-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('../../assets/fonts/Raleway-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Raleway";
+    src: url("../../assets/fonts/Raleway-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 /* Raleway End */
 
 /* Ubuntu Sans */
 @font-face {
-  font-family: 'Ubuntu Sans';
-  src: url('../../assets/fonts/UbuntuSans-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Ubuntu Sans";
+    src: url("../../assets/fonts/UbuntuSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ubuntu Sans';
-  src: url('../../assets/fonts/UbuntuSans-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Ubuntu Sans";
+    src: url("../../assets/fonts/UbuntuSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 /* Ubuntu Sans End */
 
 /* Roboto Slab */
 @font-face {
-  font-family: 'Roboto Slab';
-  src: url('../../assets/fonts/RobotoSlab-Black.woff2') format('woff2');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Roboto Slab";
+    src: url("../../assets/fonts/RobotoSlab-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* Unbounded */
 @font-face {
-  font-family: 'Unbounded';
-  src: url('../../assets/fonts/Unbounded-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Unbounded";
+    src: url("../../assets/fonts/Unbounded-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
-  --color-primary: #000;
-  --color-primary-02: rgba(0, 0, 0, 0.2);
-  --color-primary-006: rgba(0, 0, 0, 0.06);
-  --color-secondary: #fff;
-  --color-bg-dark: #282828;
-  --color-bg: #f5f5f5;
-  --color-accent: #d13a1f;
-  --color-font: #141414;
-  --color-secondary-font: #666;
-  --color-royal-peacock: #27a6e5;
-  --color-forest-maid: #48c95f;
-  --color-slider-control: #494949;
+    --color-primary: #000;
+    --color-primary-02: rgba(0, 0, 0, 0.2);
+    --color-primary-006: rgba(0, 0, 0, 0.06);
+    --color-secondary: #fff;
+    --color-bg-dark: #282828;
+    --color-bg: #f5f5f5;
+    --color-accent: #d13a1f;
+    --color-font: #141414;
+    --color-secondary-font: #666;
+    --color-royal-peacock: #27a6e5;
+    --color-forest-maid: #48c95f;
+    --color-slider-control: #494949;
 
-  --font-primary: 'Raleway', sans-serif;
-  --font-secondary: 'Ubuntu Sans', sans-serif;
-  --font-tertiary: 'Roboto Slab', sans-serif;
-  --font-quaternary: 'Unbounded', sans-serif;
+    --font-primary: "Raleway", sans-serif;
+    --font-secondary: "Ubuntu Sans", sans-serif;
+    --font-tertiary: "Roboto Slab", sans-serif;
+    --font-quaternary: "Unbounded", sans-serif;
 
-  --font-size-title: 2rem;
-  --font-size-base: 1rem;
-  --font-size-small: 0.875rem;
-  --line-height: 130%;
+    --font-size-title: 2rem;
+    --font-size-base: 1rem;
+    --font-size-small: 0.875rem;
+    --line-height: 130%;
 
-  --transition-03: 0.3s ease-in-out;
-  --bs-icon-link-transform: translate3d(0, -.125rem, 0);
+    --transition-03: 0.3s ease-in-out;
+    --bs-icon-link-transform: translate3d(0, -0.125rem, 0);
 
-  --mb-size: 3.75rem;
+    --mb-size: 3.75rem;
 
-  @media (min-width: 1024px) {
-    --mb-size: 6.25rem;
-  }
+    @media (min-width: 1024px) {
+        --mb-size: 6.25rem;
+    }
 }
 
-*, 
-::before, 
+*,
+::before,
 ::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  min-width: 360px;
-  min-height: 100vh;
-  font-family: var(--font-primary);
-  font-weight: 400;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-);
-  color: var(--color-font);
+    min-width: 360px;
+    min-height: 100vh;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-);
+    color: var(--color-font);
 }
 
 .header {
-  margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
 
-  @media (min-width: 768px) {
-    margin-bottom: 1.25rem;
-  }
+    @media (min-width: 768px) {
+        margin-bottom: 1.25rem;
+    }
 
-  @media (min-width: 1440px) {
-    margin-bottom: 1.85rem;
-  }
+    @media (min-width: 1440px) {
+        margin-bottom: 1.85rem;
+    }
 }
 
 .header__top {
-  padding-top: 0.625rem;
+    padding-top: 0.625rem;
 
-  @media (min-width: 1024px) {
-    padding: 1.875rem 0;
-  }
+    @media (min-width: 1024px) {
+        padding: 1.875rem 0;
+    }
 }
 
 .header__top .row {
-  @media (min-width: 1024px) {
-    flex-wrap: nowrap;
-  }
+    @media (min-width: 1024px) {
+        flex-wrap: nowrap;
+    }
 }
 
 .header__logo {
-  margin-bottom: 0.3rem;
-  line-height: 0.7;
+    margin-bottom: 0.3rem;
+    line-height: 0.7;
 
-  @media (min-width: 480px) {
-    margin-bottom: 0.625rem;
-    width: 345px;
-    height: 58px;
-  }
+    @media (min-width: 480px) {
+        margin-bottom: 0.625rem;
+        width: 345px;
+        height: 58px;
+    }
 
-  @media (min-width: 1024px) {
-    margin-bottom: 0;
-  }
+    @media (min-width: 1024px) {
+        margin-bottom: 0;
+    }
 }
 
 .header__contacts-list {
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--color-bg-dark);
-  padding: 0.45rem 1rem 0.55rem;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-bg-dark);
+    padding: 0.45rem 1rem 0.55rem;
 
-  @media (min-width: 480px) {
-    gap: 1.85rem;
-    padding: 0.5rem 1rem 0.5rem;
-  }
+    @media (min-width: 480px) {
+        gap: 1.85rem;
+        padding: 0.5rem 1rem 0.5rem;
+    }
 
-  @media (min-width: 768px) {
-    padding: 0.5rem 1.25rem 0.5rem;
-  }
+    @media (min-width: 768px) {
+        padding: 0.5rem 1.25rem 0.5rem;
+    }
 
-  @media (min-width: 1024px) {
-    flex-shrink: 1;
-    justify-content: flex-end;
-    gap: 1rem;
-    background: none;
-  }
+    @media (min-width: 1024px) {
+        flex-shrink: 1;
+        justify-content: flex-end;
+        gap: 1rem;
+        background: none;
+    }
 }
 
 .header__social-list {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 
-  @media (min-width: 480px) {
-    flex-direction: row;
-  }
+    @media (min-width: 480px) {
+        flex-direction: row;
+    }
 
-  @media (min-width: 1024px) {
-    gap: 1rem;
-  }
+    @media (min-width: 1024px) {
+        gap: 1rem;
+    }
 }
 
 .header__phone-list {
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
 
-  @media (min-width: 480px) {
-    flex-direction: row;
-    gap: 1.875rem;
-  }
+    @media (min-width: 480px) {
+        flex-direction: row;
+        gap: 1.875rem;
+    }
 
-  @media (min-width: 768px) {
-    gap: 7.625rem;
-  }
+    @media (min-width: 768px) {
+        gap: 7.625rem;
+    }
 
-  @media (min-width: 1024px) {
-    gap: 1rem;
-  }
+    @media (min-width: 1024px) {
+        gap: 1rem;
+    }
 }
 
 .header__phone {
-  font-family: var(--font-secondary);
-  color: var(--color-secondary);
-  font-weight: 700;
-  line-height: var(--line-height);
-  white-space: nowrap;
+    font-family: var(--font-secondary);
+    color: var(--color-secondary);
+    font-weight: 700;
+    line-height: var(--line-height);
+    white-space: nowrap;
 
-  @media (min-width: 1024px) {
-    color: var(--color-font);
-  }
+    @media (min-width: 1024px) {
+        color: var(--color-font);
+    }
 }
 
 .nav-bar {
-  @media (min-width: 1023px) {
-    background-color: var(--color-bg-dark);
-  }
+    @media (min-width: 1023px) {
+        background-color: var(--color-bg-dark);
+    }
 }
 
 .nav__list {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .nav__list--horizontal {
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 .nav__item {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
-  @media (min-width: 1024px) {
-    padding: 0.5rem 0.4rem 0.5rem 0.5rem;  
-    color: var(--color-secondary);   
-  }
+    @media (min-width: 1024px) {
+        padding: 0.5rem 0.4rem 0.5rem 0.5rem;
+        color: var(--color-secondary);
+    }
 
-  @media (min-width: 1440px) {
-    padding: 1rem 1.25rem;
-  }
+    @media (min-width: 1440px) {
+        padding: 1rem 1.25rem;
+    }
 }
 
 .nav__link {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
 }
 
 .nav__link::after {
-  content: "";
-  display: block;
-  margin-bottom: 0.5rem;
-  width: 9px;
-  height: 9px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
-  transition: border-color var(--transition-03);
+    content: "";
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 9px;
+    height: 9px;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: rotate(45deg);
+    transition: border-color var(--transition-03);
 }
 
 .nav__link--contacts::after {
-  display: none;
+    display: none;
 }
