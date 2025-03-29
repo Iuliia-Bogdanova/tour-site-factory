@@ -262,6 +262,14 @@ body {
     }
 }
 
+.nav__item--parent:hover {
+    background-color: var(--color-bg);
+}
+
+.nav__item--parent:hover > .hover-accent {
+    color: var(--color-accent);
+}
+
 .nav__link {
     position: relative;
     display: flex;
@@ -284,4 +292,36 @@ body {
 
 .nav__link--contacts::after {
     display: none;
+}
+
+.nav__sublist {
+    position: absolute;
+    /* width: 90%; */
+    min-width: 268px;
+    margin-top: 1rem;
+    padding: 8px;
+    background-color: var(--color-secondary);
+    /* box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16); */
+    z-index: 100;
+
+    @media (min-width: 1024px) {
+        /* width: 268px; */
+        margin-top: 0.5rem;
+        margin-left: -0.5rem;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    @media (min-width: 1440px) {
+        margin-top: 1rem;
+        margin-left: -1.2rem;
+    }
+}
+
+.nav__item--child {
+    padding: 0.5rem 0;
+    color: var(--color-font);
+}
+
+.nav__item--special {
+    color: var(--color-accent);
 }
