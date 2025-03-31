@@ -1,188 +1,187 @@
 .mp__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
 }
 
 .mp__panel {
-  position: absolute;
-  top: 0.625rem;
-  right: 0.9375rem;
-  z-index: 101;
-  padding: 0;
-  text-align: center;
-  background: var(--color-secondary);
-  display: none;
+    position: absolute;
+    top: 0.625rem;
+    right: 0.9375rem;
+    z-index: 101;
+    padding: 0;
+    text-align: center;
+    background: var(--color-secondary);
+    display: none;
 
-  @media (min-width: 480px) {
-    top: 1.3rem;
-  }
+    @media (min-width: 480px) {
+        top: 1.3rem;
+    }
 
-  @media (min-width: 768px) {
-    right: 1.2rem;
-  }
+    @media (min-width: 768px) {
+        right: 1.2rem;
+    }
 }
 
 .mp__panel:after {
-  content: '';
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .mp__button-main {
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  padding: 4px;
-  border-radius: 2px;
-  cursor: pointer;
-  outline: none;
-  float: right;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    float: right;
 }
 
 .mp__line {
-  position: relative;
-  display: block;
+    position: relative;
+    display: block;
 }
 
 .mp__line:after,
 .mp__line:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -8px;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -8px;
 }
 
 .mp__line:after {
-  top: 8px;
+    top: 8px;
 }
 
 .mp__line,
 .mp__line:after,
 .mp__line:before {
-  width: 100%;
-  height: 2px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 2px;
-  background-color: var(--color-primary);
+    width: 100%;
+    height: 2px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 2px;
+    background-color: var(--color-primary);
 }
 
 .mp__button-main.mp--on .mp__line {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 .mp__button-main.mp--on .mp__line:before {
-  -webkit-transform: rotate(45deg) translate(5px, 6px);
-  transform: rotate(45deg) translate(5px, 6px);
+    -webkit-transform: rotate(45deg) translate(5px, 6px);
+    transform: rotate(45deg) translate(5px, 6px);
 }
 
 .mp__button-main.mp--on .mp__line:after {
-  -webkit-transform: rotate(-45deg) translate(5px, -6px);
-  transform: rotate(-45deg) translate(5px, -6px);
+    -webkit-transform: rotate(-45deg) translate(5px, -6px);
+    transform: rotate(-45deg) translate(5px, -6px);
 }
 
 .mp__button-text {
-  margin: 6px 6px 3px 3px;
-  background: none;
-  border: solid 1px #fff;
-  padding: 6px 4px;
-  border-radius: 3px;
-  cursor: pointer;
-  outline: none;
-  font-size: 14px;
-  float: left;
-  color: var(--color-primary);
+    margin: 6px 6px 3px 3px;
+    background: none;
+    border: solid 1px #fff;
+    padding: 6px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    font-size: 14px;
+    float: left;
+    color: var(--color-primary);
 }
 
 .mp__button-text--center {
-  float: none;
+    float: none;
 }
 
 .mp--hide {
-  display: none;
+    display: none;
 }
 
 .mp__button {
-  position: relative;
+    position: relative;
 }
 
 .mp__notification:not(:empty) {
-  position: absolute;
-  top: -5px;
-  right: -11px;
-  background-color: var(--color-accent);
-  color: var(--color-secondary);
-  padding: 1px 3px;
-  border-radius: 10px;
-  min-width: 12px;
+    position: absolute;
+    top: -5px;
+    right: -11px;
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    padding: 1px 3px;
+    border-radius: 10px;
+    min-width: 12px;
 }
 
-@media only screen and (max-width : 1023px) {
+@media only screen and (max-width: 1023px) {
+    .mp__overlay.mp--on {
+        display: block;
+    }
 
-  .mp__overlay.mp--on {
-    display: block;
-  }
+    .mp__panel {
+        display: block;
+    }
 
-  .mp__panel {
-    display: block;
-  }
-
-  /* body.mp--init {
+    /* body.mp--init {
     padding-top: 40px;
   } */
 
-  .mp__nav-panel {
-    display: block;
-    position: fixed;
-    top: 56px;
-    bottom: 0;
-    width: 100%;
-    overflow-y: auto;
-    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.8);
-    -webkit-transition: left, right 0.3s linear;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.8);
-    z-index: 102;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background-color: var(--color-secondary);
-    margin: 0;
-    padding: 20px 8px !important;
-    height: auto !important;
-  }
-
-  @media (min-width: 480px) {
     .mp__nav-panel {
-        top: 78px;
+        display: block;
+        position: fixed;
+        top: 56px;
+        bottom: 0;
+        width: 100%;
+        overflow-y: auto;
+        -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.8);
+        -webkit-transition: left, right 0.3s linear;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.8);
+        z-index: 102;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: var(--color-secondary);
+        margin: 0;
+        /* padding: 20px 8px !important; */
+        height: auto !important;
     }
-  }
 
-  .mp__nav-panel_main {
-    left: -100%;
-    transition: left 0.3s linear;
-  }
+    @media (min-width: 480px) {
+        .mp__nav-panel {
+            top: 78px;
+        }
+    }
 
-  .mp__nav-panel_second {
-    right: -125%;
-    transition: right 0.3s linear;
-  }
+    .mp__nav-panel_main {
+        left: -100%;
+        transition: left 0.3s linear;
+    }
 
-  .mp__nav-panel_main.mp--on {
-    left: 0;
-  }
+    .mp__nav-panel_second {
+        right: -125%;
+        transition: right 0.3s linear;
+    }
 
-  .mp__nav-panel_main.mp--on .container {
-    margin-left: 0;
-  }
+    .mp__nav-panel_main.mp--on {
+        left: 0;
+    }
 
-  .mp__nav-panel_second.mp--on {
-    right: 0;
-  }
+    .mp__nav-panel_main.mp--on .container {
+        margin-left: 0;
+    }
+
+    .mp__nav-panel_second.mp--on {
+        right: 0;
+    }
 }

@@ -1,4 +1,9 @@
 /** bootstrap */
+.container > .nav {
+    margin-left: -0.9375rem; /* -1.875rem * 0.5 */
+    margin-right: -0.9375rem;
+}
+
 .icon-link {
     display: flex;
     gap: 0.375rem;

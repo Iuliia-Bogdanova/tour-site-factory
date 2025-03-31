@@ -232,7 +232,9 @@ body {
 }
 
 .nav-bar {
-    @media (min-width: 1023px) {
+    background-color: var(--color-bg);
+    /* на 1023 нет кнопки меню но есть мобильное меню */
+    @media (min-width: 1024px) {
         background-color: var(--color-bg-dark);
     }
 }
@@ -249,8 +251,8 @@ body {
 }
 
 .nav__item {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem calc(var(--bs-gutter-x) * 0.5);
+    transition: background-color var(--transition-03);
 
     @media (min-width: 1024px) {
         padding: 0.5rem 0.4rem 0.5rem 0.5rem;
@@ -262,8 +264,18 @@ body {
     }
 }
 
+.nav__item:hover {
+    background-color: var(--color-secondary);
+
+    @media (min-width: 1024px) {
+        background-color: inherit;
+    }
+}
+
 .nav__item--parent:hover {
-    background-color: var(--color-bg);
+    @media (min-width: 1024px) {
+        background-color: var(--color-secondary);
+    }
 }
 
 .nav__item--parent:hover > .hover-accent {
@@ -299,7 +311,7 @@ body {
     /* width: 90%; */
     min-width: 268px;
     margin-top: 1rem;
-    padding: 8px;
+    /* padding: 8px; */
     background-color: var(--color-secondary);
     /* box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16); */
     z-index: 100;
