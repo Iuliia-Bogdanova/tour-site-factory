@@ -316,6 +316,11 @@ body {
     }
 }
 
+.nav__link.active::after {
+    transform: rotate(-135deg);
+    margin-bottom: 0;
+}
+
 .nav__link--contacts::after {
     display: none;
 }
@@ -343,6 +348,18 @@ body {
         margin-top: 1rem;
         /* margin-left: 1.2rem; */
     }
+}
+
+.nav__sublist.level-two-only {
+    padding-bottom: 1rem;
+
+    @media (min-width: 1024px) {
+        min-width: 250px;
+    }
+}
+
+.nav__sublist.open {
+    display: block;
 }
 
 .nav__item--child {
@@ -374,8 +391,8 @@ body {
 }
 
 .nav__sublist--nested {
-    /* display: none; */
-    display: flex;
+    display: none;
+    /* display: flex; */
     padding-left: 1rem;
     background-color: var(--color-secondary);
 
