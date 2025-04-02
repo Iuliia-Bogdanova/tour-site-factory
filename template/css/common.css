@@ -97,6 +97,8 @@
 
     --mb-size: 3.75rem;
 
+    --margin-right: 0;
+
     @media (min-width: 1024px) {
         --mb-size: 6.25rem;
     }
@@ -252,7 +254,6 @@ body {
 
 .nav__item {
     position: relative;
-    /* padding: 1rem calc(var(--bs-gutter-x) * 0.5); */
     padding: 1rem 0;
     transition: background-color var(--transition-03);
 
@@ -301,6 +302,7 @@ body {
 .nav__link::after {
     content: "";
     display: block;
+    margin-left: 0.3rem;
     margin-bottom: 0.5rem;
     width: 9px;
     height: 9px;
@@ -308,6 +310,10 @@ body {
     border-bottom: 1px solid currentColor;
     transform: rotate(45deg);
     transition: border-color var(--transition-03);
+
+    @media (min-width: 1024px) {
+        margin-left: 0;
+    }
 }
 
 .nav__link--contacts::after {
@@ -315,6 +321,7 @@ body {
 }
 
 .nav__sublist {
+    display: none;
     width: 100%;
     margin-top: 1rem;
     padding-left: 1.5rem;
@@ -349,12 +356,26 @@ body {
 }
 
 .nav__icon--open {
-    /* margin-right: clamp(5%, calc((100vw - 300px) * 1.2), 70%); */
-    margin-right: 1.5rem;
-    /* margin-right: calc(var(--bs-gutter-x) * 0.5); */
+    /* margin-right: 6rem;
+
+    @media (min-width: 1023px) {
+        margin-right: 47rem;
+    } */
+
+    margin-right: var(--margin-right); /* динамический */
+
+    @media (min-width: 1024px) {
+        margin-right: 1rem;
+    }
+}
+
+.icon-close {
+    display: none;
 }
 
 .nav__sublist--nested {
+    /* display: none; */
+    display: flex;
     padding-left: 1rem;
     background-color: var(--color-secondary);
 
