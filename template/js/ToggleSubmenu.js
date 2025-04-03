@@ -1,97 +1,42 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     const parentItem = document.querySelectorAll(".nav__item--parent");
-//     const link = parentItem.querySelectorAll(".nav__link");
-//     const sublist = parentItem.querySelectorAll(".nav__sublist");
+const parentItems = document.querySelectorAll(".nav__item--parent");
 
-//     function toggleMenu() {
-//         const isOpen = sublist.classList.contains("open");
-//         sublist.classList.toggle("open", !isOpen);
-//         link.classList.toggle("active", !isOpen);
-//     }
+parentItems.forEach((parent) => {
+    const link = parent.querySelector(".nav__link");
+    const sublist = parent.querySelector(".nav__sublist");
 
-//     // function toggleMenu() {
-//     //     const isOpen = sublist.classList.contains("open");
+    const isDesktop = window.innerWidth >= 1024;
 
-//     //     if (isOpen) {
-//     //         sublist.style.height = sublist.scrollHeight + "px"; // Установить высоту перед закрытием
-//     //         requestAnimationFrame(() => {
-//     //             sublist.style.height = "0";
-//     //             sublist.classList.remove("open");
-//     //         });
-//     //     } else {
-//     //         sublist.style.height = "0"; // Сбросить, чтобы анимация сработала
-//     //         sublist.classList.add("open");
-//     //         requestAnimationFrame(() => {
-//     //             sublist.style.height = sublist.scrollHeight + "px";
-//     //         });
-//     //     }
-//     // }
+    function toggleMenu() {
+        const isOpen = sublist.classList.contains("open");
+        sublist.classList.toggle("open", !isOpen);
+        link.classList.toggle("active", !isOpen);
 
-//     function closeMenu() {
-//         sublist.classList.remove("open");
-//         link.classList.remove("active");
-//     }
+        parent.classList.toggle("active", !isOpen);
+    }
 
-//     link.addEventListener("click", function (event) {
-//         if (window.innerWidth < 1024) {
-//             event.preventDefault();
-//             toggleMenu();
-//         }
-//     });
+    function closeMenu() {
+        sublist.classList.remove("open");
+        link.classList.remove("active");
 
-//     link.addEventListener("mouseenter", function () {
-//         if (window.innerWidth >= 1024) {
-//             sublist.classList.add("open");
-//             link.classList.add("active");
-//         }
-//     });
+        parent.classList.remove("active");
+    }
 
-//     parentItem.addEventListener("mouseleave", function () {
-//         if (window.innerWidth >= 1024) {
-//             closeMenu();
-//         }
-//     });
-// });
+    function openMenu() {
+        sublist.classList.add("open");
+        link.classList.add("active");
+    }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const parentItems = document.querySelectorAll(".nav__item--parent");
-
-    parentItems.forEach((parent) => {
-        const link = parent.querySelector(".nav__link");
-        const sublist = parent.querySelector(".nav__sublist");
-
-        function toggleMenu() {
-            const isOpen = sublist.classList.contains("open");
-            sublist.classList.toggle("open", !isOpen);
-            link.classList.toggle("active", !isOpen);
+    // Клик на псевдоэлемент для открытия/закрытия (на мобилке)
+    link.addEventListener("click", function (event) {
+        if (!isDesktop) {
+            event.preventDefault();
+            toggleMenu();
         }
-
-        function closeMenu() {
-            sublist.classList.remove("open");
-            link.classList.remove("active");
-        }
-
-        // Клик на псевдоэлемент для открытия/закрытия (на мобилке)
-        link.addEventListener("click", function (event) {
-            if (window.innerWidth < 1024) {
-                event.preventDefault();
-                toggleMenu();
-            }
-        });
-
-        // Наведение на десктопе
-        parent.addEventListener("mouseenter", function () {
-            if (window.innerWidth >= 1024) {
-                sublist.classList.add("open");
-                link.classList.add("active");
-            }
-        });
-
-        // Уход с элемента на десктопе
-        parent.addEventListener("mouseleave", function () {
-            if (window.innerWidth >= 1024) {
-                closeMenu();
-            }
-        });
     });
+
+    // Наведение на десктопе
+    if (isDesktop) {
+        parent.addEventListener("mouseenter", openMenu);
+        parent.addEventListener("mouseleave", closeMenu);
+    }
 });

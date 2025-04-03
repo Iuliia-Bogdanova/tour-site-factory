@@ -285,6 +285,14 @@ body {
     color: var(--color-accent);
 }
 
+.nav__item.active {
+    background-color: var(--color-secondary);
+}
+
+.nav__item--parent.active > .hover-accent {
+    color: var(--color-accent);
+}
+
 .nav__link {
     position: relative;
     display: flex;
@@ -350,7 +358,7 @@ body {
     }
 }
 
-.nav__sublist.level-two-only {
+.nav__sublist.only-level-two {
     padding-bottom: 1rem;
 
     @media (min-width: 1024px) {
@@ -360,6 +368,15 @@ body {
 
 .nav__sublist.open {
     display: block;
+    margin-top: 0;
+
+    @media (min-width: 1024px) {
+        margin-top: 0.5rem;
+    }
+
+    @media (min-width: 1440px) {
+        margin-top: 1rem;
+    }
 }
 
 .nav__item--child {
