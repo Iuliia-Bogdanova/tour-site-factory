@@ -281,15 +281,13 @@ body {
     }
 }
 
-.nav__item--parent:hover > .hover-accent {
-    color: var(--color-accent);
-}
-
 .nav__item.active {
     background-color: var(--color-secondary);
 }
 
-.nav__item--parent.active > .hover-accent {
+.nav__item--parent:hover > .hover-accent,
+.nav__item--parent.active > .hover-accent,
+.nav__item--child.active > .nav__link--child {
     color: var(--color-accent);
 }
 
@@ -340,8 +338,6 @@ body {
     padding-left: 1.5rem;
     background-color: var(--color-secondary);
 
-    /* outline: 1px solid red; */
-
     @media (min-width: 1024px) {
         position: absolute;
         min-width: 268px;
@@ -358,7 +354,7 @@ body {
     }
 }
 
-.nav__sublist.only-level-two {
+.nav__sublist.level-two-only {
     padding-bottom: 1rem;
 
     @media (min-width: 1024px) {
@@ -384,36 +380,44 @@ body {
     color: var(--color-font);
 }
 
+.nav__item--child.active .icon-open {
+    display: none;
+}
+
+.nav__item--child.active .icon-close {
+    display: inline-block;
+}
+
 .nav__item--special {
     padding: 1rem 0;
     color: var(--color-accent);
 }
 
 .nav__icon--open {
-    /* margin-right: 6rem;
-
-    @media (min-width: 1023px) {
-        margin-right: 47rem;
-    } */
-
-    margin-right: var(--margin-right); /* динамический */
+    margin-right: var(--margin-right); /* динамический 6-47rem */
 
     @media (min-width: 1024px) {
         margin-right: 1rem;
     }
 }
 
-.icon-close {
+.icon-open.hidden,
+.icon-close.hidden {
     display: none;
+}
+
+.icon-close {
+    rotate: -90deg;
+
+    @media (min-width: 1024px) {
+        rotate: 0deg;
+    }
 }
 
 .nav__sublist--nested {
     display: none;
-    /* display: flex; */
     padding-left: 1rem;
     background-color: var(--color-secondary);
-
-    /* outline: 1px solid green; */
 
     @media (min-width: 1024px) {
         position: absolute;
@@ -429,19 +433,42 @@ body {
     }
 }
 
+.nested-promotion {
+    @media (min-width: 1024px) {
+        width: 508px;
+        margin-top: -2.1rem;
+    }
+}
+.nested-support {
+    @media (min-width: 1024px) {
+        margin-top: -4.2rem;
+    }
+}
+
+.nav__sublist--nested.open {
+    display: flex;
+}
+
 .nav__sublist--nested .nav__item--child {
     padding: 0.75rem 2rem 0 0;
 }
 
 .nested-img {
     display: none;
-    width: 194px;
-    height: 168px;
-    object-fit: cover;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
     object-position: center;
-    margin: auto 0;
+    margin: auto 1rem;
 
     @media (min-width: 1024px) {
         display: block;
     }
 }
+
+/* .support-img {
+    @media (min-width: 1024px) {
+        width: 160px;
+        height: 160px;
+    }
+} */
