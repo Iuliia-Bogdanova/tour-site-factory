@@ -10,6 +10,7 @@ parentItems.forEach((parent) => {
 
     function toggleSubmenu() {
         const isOpen = sublist.classList.contains("open");
+
         sublist.classList.toggle("open", !isOpen);
         link.classList.toggle("active", !isOpen);
         parent.classList.toggle("active", !isOpen);
@@ -37,10 +38,22 @@ parentItems.forEach((parent) => {
 
         function toggleNestedSubmenu() {
             const isOpen = nestedSublist.classList.contains("open");
+
+            // НЕ сбрасывать активные классы у других пунктов 2 уровня
             nestedSublist.classList.toggle("open", !isOpen);
             childLink.classList.toggle("active", !isOpen);
+            childItem.classList.toggle("active", !isOpen);
             openIcon.classList.toggle("hidden", !isOpen);
             closeIcon.classList.toggle("hidden", isOpen);
+        }
+
+        // Закрыть вложенные подменю при закрытии родителя на десктопе
+        function closeNestedSubmenu() {
+            nestedSublist.classList.remove("open");
+            childLink.classList.remove("active");
+            childItem.classList.remove("active");
+            openIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
         }
 
         // Обработать клик на мобилке
@@ -56,13 +69,13 @@ parentItems.forEach((parent) => {
             childItem.addEventListener("mouseenter", toggleNestedSubmenu);
             childItem.addEventListener("mouseleave", () => {
                 if (nestedSublist.classList.contains("open")) {
-                    toggleNestedSubmenu();
+                    closeNestedSubmenu();
                 }
             });
         }
     });
 
-    // Обработать клики на 1 уровне
+    // Обработать клики на мобилке для 1 уровня
     link.addEventListener("click", (e) => {
         if (!isDesktop) {
             e.preventDefault();
