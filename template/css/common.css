@@ -88,6 +88,7 @@
     --font-quaternary: "Unbounded", sans-serif;
 
     --font-size-title: 2rem;
+    --font-size-subtitle: 1.5rem;
     --font-size-base: 1rem;
     --font-size-small: 0.875rem;
     --line-height: 130%;
@@ -118,7 +119,7 @@ body {
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: var(--font-size-base);
-    line-height: var(--line-height-);
+    line-height: var(--line-height);
     color: var(--color-font);
 }
 
@@ -233,6 +234,7 @@ body {
     }
 }
 
+/* Dropdown menu */
 .nav-bar {
     background-color: var(--color-bg);
     /* на 1023 нет кнопки меню но есть мобильное меню */
@@ -466,10 +468,26 @@ body {
         display: block;
     }
 }
+/* Header END */
 
-/* .support-img {
-    @media (min-width: 1024px) {
-        width: 160px;
-        height: 160px;
+/* Services Stats */
+.services-stats__wrap {
+    padding-top: 1.5rem;
+
+    @media (min-width: 768px) {
+        padding-top: 0;
     }
-} */
+}
+
+.stats__item {
+    padding: 1.5rem 0 2rem;
+}
+
+.stats__value {
+    font-family: var(--font-quaternary);
+    font-size: 2.8125rem;
+
+    @media (min-width: 768px) {
+        font-size: 4rem;
+    }
+}
