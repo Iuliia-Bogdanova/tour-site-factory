@@ -56,3 +56,52 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     });
 });
+
+// stats__value counter
+function animateCounter(element, endValue, duration) {
+    let startValue = 0;
+    let current = startValue;
+    const increment = endValue / (duration / 16);
+
+    function updateCounter() {
+        current += increment;
+        if (current >= endValue) {
+            element.textContent = endValue;
+        } else {
+            element.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+        }
+    }
+
+    updateCounter();
+}
+// Определить функцию запуска анимации
+function startCounting() {
+    const counters = document.querySelectorAll(".stats__value");
+
+    counters.forEach((counter) => {
+        const endValue = parseInt(counter.textContent, 10);
+        counter.textContent = "0";
+        animateCounter(counter, endValue, 2000);
+    });
+}
+// Определить блок, в котором находится счетчик
+const statsSection = document.querySelector(".row.justify-content-between");
+
+if (statsSection) {
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    startCounting();
+                    observer.unobserve(entry.target); // чтобы сработал 1 раз
+                }
+            });
+        },
+        {
+            threshold: 0.9, // сработает на 90% видимости блока
+        }
+    );
+
+    observer.observe(statsSection);
+}
