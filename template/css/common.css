@@ -427,7 +427,7 @@ body {
         flex-wrap: wrap;
         align-content: space-between;
         width: 744px;
-        height: 242px;
+        height: 248px;
         top: 0;
         left: 244px;
         padding-bottom: 1rem;
@@ -439,12 +439,12 @@ body {
 .nested-promotion {
     @media (min-width: 1024px) {
         width: 508px;
-        margin-top: -2.1rem;
+        margin-top: -2.2rem;
     }
 }
 .nested-support {
     @media (min-width: 1024px) {
-        margin-top: -4.2rem;
+        margin-top: -4.4rem;
     }
 }
 
