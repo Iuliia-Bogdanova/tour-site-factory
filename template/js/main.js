@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// stats__value counter
+// Сounter .wrap-counter.stats__value
+// Анимировать счетчик
 function animateCounter(element, endValue, duration) {
-    let startValue = 0;
-    let current = startValue;
+    let current = 0;
     const increment = endValue / (duration / 16);
 
     function updateCounter() {
@@ -75,33 +75,35 @@ function animateCounter(element, endValue, duration) {
 
     updateCounter();
 }
-// Определить функцию запуска анимации
-function startCounting() {
-    const counters = document.querySelectorAll(".stats__value");
+// Запустить анимацию внутри блока
+function startCountingInBlock(container) {
+    const counters = container.querySelectorAll(".stats__value");
 
     counters.forEach((counter) => {
         const endValue = parseInt(counter.textContent, 10);
         counter.textContent = "0";
-        animateCounter(counter, endValue, 2000);
+        animateCounter(counter, endValue, 1500);
     });
 }
-// Определить блок, в котором находится счетчик
-const statsSection = document.querySelector(".row.justify-content-between");
 
-if (statsSection) {
+const statsSections = document.querySelectorAll(".wrap-counter");
+
+if (statsSections.length > 0) {
     const observer = new IntersectionObserver(
         (entries, observer) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    startCounting();
-                    observer.unobserve(entry.target); // чтобы сработал 1 раз
+                    startCountingInBlock(entry.target);
+                    observer.unobserve(entry.target);
                 }
             });
         },
         {
-            threshold: 0.9, // сработает на 90% видимости блока
+            threshold: 0.9,
         }
     );
 
-    observer.observe(statsSection);
+    statsSections.forEach((section) => {
+        observer.observe(section);
+    });
 }
