@@ -300,14 +300,6 @@ body {
 }
 
 .nav__link {
-    color: inherit; /* Цвет по умолчанию для ссылки */
-}
-
-.nav__link.active {
-    color: var(--color-accent); /* Акцентный цвет при активации */
-}
-
-.nav__link {
     position: relative;
     display: flex;
     align-items: center;
