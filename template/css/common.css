@@ -599,6 +599,7 @@ body {
     text-align: center;
 }
 
-.counter-plus {
+.counter-plus .icon {
     vertical-align: super;
+    color: var(--color-accent);
 }

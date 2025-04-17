@@ -36,7 +36,7 @@ window.addEventListener("resize", () => {
 document.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper(".swiper-container", {
         loop: true,
-        initialSlide: 1,
+        initialSlide: 0,
         slidesPerView: 1,
         spaceBetween: 15,
         centeredSlides: true,
@@ -47,8 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
-            dynamicBullets: true,
-            dynamicMainBullets: 1,
+            // dynamicBullets: true,
+            // dynamicMainBullets: 1,
+            // отключить активную точку + соседние, включить все
         },
         a11y: {
             prevSlideMessage: "Предыдущий слайд",
@@ -57,8 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Сounter .wrap-counter.stats__value
-// Анимировать счетчик
+// Анимировать счетчик Сounter .wrap-counter.stats__value
 function animateCounter(element, endValue, duration) {
     let current = 0;
     const increment = endValue / (duration / 16);
