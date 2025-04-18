@@ -10,21 +10,37 @@ parentItems.forEach((parent) => {
 
     function toggleSubmenu() {
         const isOpen = sublist.classList.contains("open");
+        const icon = link.querySelector(".first-level-icon");
 
         sublist.classList.toggle("open", !isOpen);
         link.classList.toggle("active", !isOpen);
         parent.classList.toggle("active", !isOpen);
+
+        if (icon) {
+            icon.classList.toggle("active", !isOpen);
+        }
     }
 
     function closeSubmenu() {
         sublist.classList.remove("open");
         link.classList.remove("active");
         parent.classList.remove("active");
+
+        const icon = link.querySelector(".first-level-icon");
+        if (icon) {
+            icon.classList.remove("active");
+        }
     }
 
     function openSubmenu() {
         sublist.classList.add("open");
         link.classList.add("active");
+        parent.classList.add("active");
+
+        const icon = link.querySelector(".first-level-icon");
+        if (icon) {
+            icon.classList.add("active");
+        }
     }
 
     // Обработать клики на 2 уровне если есть 3 уровень
