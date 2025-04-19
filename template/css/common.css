@@ -503,10 +503,21 @@ body.lock-scroll {
 /* About */
 .about__top {
     flex-direction: column;
+    margin-bottom: 2.5rem;
     gap: 1.75rem;
+
+    @media (min-width: 480px) {
+        margin-bottom: 3.5rem;
+    }
+
+    @media (min-width: 768px) {
+        margin-bottom: 4rem;
+        gap: 2.5rem;
+    }
 
     @media (min-width: 1440px) {
         flex-direction: row;
+        margin-bottom: 4.5rem;
         gap: 1.75rem;
     }
 }
@@ -516,7 +527,7 @@ body.lock-scroll {
         padding-top: 7rem;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
         padding-top: 5rem;
     }
 
@@ -592,6 +603,16 @@ body.lock-scroll {
     }
 }
 
+.counter-item {
+    @media (min-width: 480px) {
+        padding-top: 3.5rem;
+    }
+
+    @media (min-width: 768px) {
+        padding-top: 5rem;
+    }
+}
+
 .value-counter {
     font-family: var(--font-primary);
     font-size: 2.625rem;
@@ -605,4 +626,23 @@ body.lock-scroll {
 .counter-plus .icon {
     vertical-align: super;
     color: var(--color-accent);
+}
+
+.award-item {
+    @media (min-width: 768px) {
+        width: 48%;
+    }
+}
+
+.award-subtitle {
+    display: inline-block;
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-subtitle);
+    font-weight: 700;
+    color: var(--color-accent);
+    padding-top: 0.5rem;
+
+    @media (min-width: 1024px) {
+        padding-top: 1.5rem;
+    }
 }
