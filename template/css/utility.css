@@ -118,6 +118,19 @@
     }
 }
 
+.title-secondary {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: var(--font-size-subtitle);
+    line-height: var(--line-height);
+}
+
+/* для относительного позиционирования иконки icon-title-decor для любой длины заголовка title-secondary */
+.title-end {
+    position: relative;
+    display: inline-block;
+}
+
 .title-tertiary {
     font-family: var(--font-primary);
     font-weight: 700;

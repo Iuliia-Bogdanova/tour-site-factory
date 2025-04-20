@@ -112,6 +112,10 @@
     transition: transform var(--transition-03);
 }
 
+.icon--original {
+    fill: none;
+}
+
 .icon-social {
     border-radius: 50%;
 }
@@ -130,4 +134,14 @@
 
 .icon-social--phone:hover {
     animation: phone-ring 0.8s ease-in-out infinite;
+}
+
+.icon-title-decor {
+    display: inline-block;
+    position: absolute;
+    top: -38px;
+    right: -40px;
+    width: 64px;
+    height: 60px;
+    object-fit: cover;
 }

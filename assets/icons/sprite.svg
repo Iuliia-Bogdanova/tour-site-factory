@@ -85,4 +85,10 @@
             d="M4 12.5C4 11.9477 4.44772 11.5 5 11.5H19C19.5523 11.5 20 11.9477 20 12.5C20 13.0523 19.5523 13.5 19 13.5H5C4.44772 13.5 4 13.0523 4 12.5Z"
         />
     </symbol>
+    <symbol id="icon-title-decor" viewBox="0 0 64 60" fill="none" width="64" height="60">
+        <circle cx="30" cy="30" r="30" fill="#D13A1F" fill-opacity="0.2"/>
+        <circle cx="60" cy="30" r="4" fill="#D13A1F"/>
+    </symbol>
 </svg>
+
+
