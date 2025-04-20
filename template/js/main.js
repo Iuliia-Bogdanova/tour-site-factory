@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Анимировать счетчик Сounter .wrap-counter.stats__value
+// Анимация счетчика Сounter .wrap-counter.stats__value
 function animateCounter(element, endValue, duration) {
     let current = 0;
     const increment = endValue / (duration / 16);
@@ -107,3 +107,57 @@ if (statsSections.length > 0) {
         observer.observe(section);
     });
 }
+
+// Portfolio text typed
+document.addEventListener("DOMContentLoaded", () => {
+    const typedItems = document.querySelectorAll(".typed-item");
+    const texts = Array.from(typedItems).map((item) => item.textContent);
+
+    let currentIndex = 0;
+    let charIndex = 0;
+    let direction = "forward";
+
+    // Очистить текст, скрыть все
+    typedItems.forEach((item) => {
+        item.textContent = "";
+        item.classList.remove("visible");
+    });
+
+    function typeLoop() {
+        const currentItem = typedItems[currentIndex];
+        const currentText = texts[currentIndex];
+
+        if (charIndex === 0 && direction === "forward") {
+            // Добавить fade-in в начале слова
+            currentItem.classList.add("visible");
+        }
+
+        if (direction === "forward") {
+            currentItem.textContent = currentText.slice(0, charIndex + 1);
+            charIndex++;
+
+            if (charIndex === currentText.length) {
+                direction = "backward";
+                setTimeout(typeLoop, 1400);
+                return;
+            }
+
+            setTimeout(typeLoop, 60); // скорость тайпинга
+        } else if (direction === "backward") {
+            currentItem.textContent = currentText.slice(0, charIndex - 1);
+            charIndex--;
+
+            if (charIndex === 0) {
+                currentItem.classList.remove("visible");
+                currentIndex = (currentIndex + 1) % typedItems.length;
+                direction = "forward";
+                setTimeout(typeLoop, 400);
+                return;
+            }
+
+            setTimeout(typeLoop, 30); // скорость delete
+        }
+    }
+
+    typeLoop();
+});

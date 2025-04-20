@@ -572,28 +572,7 @@ body.lock-scroll {
     }
 }
 
-/* .about__title-primary::after {
-    position: absolute;
-    content: "";
-    top: 42px;
-    left: 230px;
-    width: 64px;
-    height: 60px;
-    background-image: url("/assets/svg/icon-title-decor.svg");
-    background-position: center;
-    background-size: cover;
-
-    @media (min-width: 768px) {
-        top: 36px;
-    }
-
-    @media (min-width: 1024px) {
-        top: 60px;
-        left: 344px;
-    }
-} */
-
-.text-about {
+.about__text-body {
     @media (min-width: 768px) {
         padding-left: 1rem;
     }
@@ -656,3 +635,42 @@ body.lock-scroll {
     font-weight: 700;
     color: var(--color-accent);
 }
+/* About END*/
+
+/* Portfolio */
+.portfolio__inner {
+    gap: 1.25rem;
+
+    @media (min-width: 1024px) {
+        gap: 2.5rem;
+    }
+}
+
+.portfolio__text-body {
+    text-align: center;
+    @media (min-width: 1024px) {
+        font-size: 20px;
+    }
+}
+
+.text-typed {
+    display: inline-block;
+    font-weight: 500;
+}
+
+.typed-item {
+    display: inline-block;
+    opacity: 0;
+    visibility: hidden;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 1.5px;
+    transition: opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
+}
+
+.typed-item.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease-in-out;
+}
+/* Portfolio END*/
