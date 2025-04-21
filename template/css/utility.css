@@ -95,6 +95,10 @@
     user-select: none;
 }
 
+.no-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .pos-relative {
     position: relative;
 }
