@@ -1,9 +1,9 @@
-// burger-меню
+// 1. burger-меню
 const mp = new MobilePanel({
     navbar: ".nav-bar",
 });
 
-// Универсальная функция для обновления любого свойства CSS в зависимости от ширины окна с любыми единицами изменения
+// 2. Универсальная функция для обновления любого свойства CSS в зависимости от ширины окна с любыми единицами изменения
 function updateDynamicProperty(
     propertyName,
     minValue,
@@ -32,7 +32,7 @@ window.addEventListener("resize", () => {
     updateDynamicProperty("margin-right", 6, 47, "rem", 360, 1023);
 });
 
-// Swiper слайдер
+// 3. Swiper слайдер
 document.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper(".swiper-container", {
         loop: true,
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Анимация счетчика Сounter .wrap-counter.stats__value
+// 4. Анимация счетчика Сounter .wrap-counter.stats__value
 function animateCounter(element, endValue, duration) {
     let current = 0;
     const increment = endValue / (duration / 16);
@@ -108,7 +108,7 @@ if (statsSections.length > 0) {
     });
 }
 
-// Portfolio text typed
+// 5. Portfolio text typed
 document.addEventListener("DOMContentLoaded", () => {
     const typedItems = document.querySelectorAll(".typed-item");
     const texts = Array.from(typedItems).map((item) => item.textContent);
@@ -160,4 +160,81 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     typeLoop();
+});
+
+// 6.1 Portfolio-tabs switchers на десктопе ховер и клик одинаковые, через .btn-active
+// document.addEventListener("DOMContentLoaded", function () {
+//     const tabsContainer = document.getElementById("portfolioTabs");
+//     const tabButtons = tabsContainer.querySelectorAll("button[data-category]");
+//     let activeTab = tabsContainer.querySelector(".btn-primary-tab");
+
+//     tabButtons.forEach((button) => {
+//         // Ховер — временно добавить стиль активной к текущей
+//         button.addEventListener("mouseenter", () => {
+//             if (button !== activeTab) {
+//                 activeTab.classList.add("btn-tab");
+//             }
+//         });
+
+//         button.addEventListener("mouseleave", () => {
+//             if (button !== activeTab) {
+//                 activeTab.classList.remove("btn-tab");
+//             }
+//         });
+
+//         // Клик — переключить активную кнопку
+//         button.addEventListener("click", () => {
+//             if (button !== activeTab) {
+//                 // Удалить стили у текущей активной
+//                 activeTab.classList.remove("btn-primary-tab", "btn-active");
+//                 activeTab.classList.add("btn-tab");
+//                 activeTab.removeAttribute("aria-selected");
+//                 activeTab.style.pointerEvents = "auto";
+
+//                 // Добавить активные стили новой кнопке
+//                 button.classList.remove("btn-tab");
+//                 button.classList.add("btn-primary-tab", "btn-active");
+//                 button.setAttribute("aria-selected", "true");
+//                 button.style.pointerEvents = "none";
+
+//                 activeTab = button;
+//             }
+//         });
+//     });
+// });
+
+// 6.2 Portfolio-tabs switchers на десктопе ховер и клик разные, через .btn-current
+document.addEventListener("DOMContentLoaded", () => {
+    const tabsContainer = document.getElementById("portfolioTabs");
+    const tabButtons = tabsContainer.querySelectorAll("button[data-category]");
+
+    let activeTab = tabsContainer.querySelector(".btn-primary-tab");
+
+    tabButtons.forEach((button) => {
+        button.addEventListener("mouseenter", () => {
+            if (button !== activeTab) activeTab.classList.add("btn-current");
+        });
+
+        button.addEventListener("mouseleave", () => {
+            if (button !== activeTab) activeTab.classList.remove("btn-current");
+        });
+
+        button.addEventListener("click", () => {
+            if (button === activeTab) return;
+
+            // Сбросить старую активную
+            activeTab.classList.remove("btn-primary-tab", "btn-current");
+            activeTab.classList.add("btn-tab");
+            activeTab.setAttribute("aria-selected", "false");
+            activeTab.style.pointerEvents = "auto";
+
+            // Назначить новую активную
+            button.classList.remove("btn-tab");
+            button.classList.add("btn-primary-tab", "btn-current");
+            button.setAttribute("aria-selected", "true");
+            button.style.pointerEvents = "none";
+
+            activeTab = button;
+        });
+    });
 });
