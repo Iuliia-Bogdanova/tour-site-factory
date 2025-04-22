@@ -203,10 +203,15 @@ document.addEventListener("DOMContentLoaded", () => {
 //     });
 // });
 
+// 6. Фильтрация карточек портфолио
 // 6.2 Portfolio-tabs switchers на десктопе ховер и клик разные, через .btn-current
 document.addEventListener("DOMContentLoaded", () => {
     const tabsContainer = document.getElementById("portfolioTabs");
     const tabButtons = tabsContainer.querySelectorAll("button[data-category]");
+    const cardContainer = document.querySelector(".portfolio-tabs__cards");
+    const allCards = Array.from(
+        cardContainer.querySelectorAll(".portfolio-card, .portfolio-card--tall")
+    );
     let activeTab = tabsContainer.querySelector(".btn-primary-tab");
 
     const isActivePrimaryCurrent = () =>
@@ -229,19 +234,51 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             if (button === activeTab) return;
 
-            // Сброс старой активной
+            // Сбросить исходно активную кнопку
             activeTab.classList.remove("btn-primary-tab", "btn-current");
             activeTab.classList.add("btn-tab");
             activeTab.setAttribute("aria-selected", "false");
             activeTab.style.pointerEvents = "auto";
 
-            // Назначение новой активной
+            // Назначить новую активную кнопку
             button.classList.remove("btn-tab");
             button.classList.add("btn-primary-tab", "btn-current");
             button.setAttribute("aria-selected", "true");
             button.style.pointerEvents = "none";
 
             activeTab = button;
+
+            // Получить категорию
+            const category = button.dataset.category;
+
+            // Перебрать карточки
+            allCards.forEach((card) => {
+                const cardCategories = card.dataset.category.split(" ");
+                const isMatch =
+                    category === "all" || cardCategories.includes(category);
+
+                card.style.display = isMatch ? "" : "none";
+
+                // Сбросить --tall при фильтрации
+                if (category === "all") {
+                    cardContainer.classList.remove("disable-tall");
+                } else {
+                    cardContainer.classList.add("disable-tall");
+                }
+            });
+
+            // Адаптировать column-count под кол-во видимых карточек при фильтрации
+            const visibleCards = allCards.filter(
+                (card) => card.style.display !== "none"
+            );
+
+            if (visibleCards.length < 5) {
+                cardContainer.style.columnCount = 2;
+                cardContainer.classList.add("layout--narrow");
+            } else {
+                cardContainer.style.columnCount = 3;
+                cardContainer.classList.remove("layout--narrow");
+            }
         });
     });
 });
