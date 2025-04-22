@@ -154,6 +154,10 @@
     line-height: var(--line-height);
 }
 
+/* .text-center {
+    text-align: center;
+} */
+
 .fw-600 {
     font-weight: 600;
 }
@@ -183,6 +187,12 @@
 .d-flex-between-start {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+}
+
+.d-flex-end-start {
+    display: flex;
+    justify-content: flex-end;
     align-items: flex-start;
 }
 

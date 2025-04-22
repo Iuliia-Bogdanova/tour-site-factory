@@ -113,6 +113,10 @@
     animation: phone-ring 0.8s ease-in-out infinite;
 }
 
+.btn-center {
+    margin: 0 auto;
+}
+
 @keyframes phone-ring {
     0% {
         transform: rotate(0deg);
