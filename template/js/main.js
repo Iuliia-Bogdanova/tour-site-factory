@@ -258,26 +258,36 @@ document.addEventListener("DOMContentLoaded", () => {
                     category === "all" || cardCategories.includes(category);
 
                 card.style.display = isMatch ? "" : "none";
+            });
 
+            // Сбросить --tall и column-count при ширине >= 768px
+            if (window.innerWidth >= 768) {
                 // Сбросить --tall при фильтрации
                 if (category === "all") {
                     cardContainer.classList.remove("disable-tall");
                 } else {
                     cardContainer.classList.add("disable-tall");
                 }
-            });
 
-            // Адаптировать column-count под кол-во видимых карточек при фильтрации
-            const visibleCards = allCards.filter(
-                (card) => card.style.display !== "none"
-            );
+                // Адаптировать column-count под кол-во видимых карточек при фильтрации
+                const visibleCards = allCards.filter(
+                    (card) => card.style.display !== "none"
+                );
 
-            if (visibleCards.length < 5) {
-                cardContainer.style.columnCount = 2;
-                cardContainer.classList.add("layout--narrow");
+                if (visibleCards.length < 5) {
+                    cardContainer.style.columnCount = 2;
+                    cardContainer.classList.add("layout--narrow");
+                } else {
+                    cardContainer.style.columnCount = 3;
+                    cardContainer.classList.remove("layout--narrow");
+                }
             } else {
-                cardContainer.style.columnCount = 3;
-                cardContainer.classList.remove("layout--narrow");
+                // На мобилке
+                cardContainer.classList.remove(
+                    "disable-tall",
+                    "layout--narrow"
+                );
+                cardContainer.style.columnCount = "";
             }
         });
     });

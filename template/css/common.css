@@ -282,6 +282,10 @@ body.lock-scroll {
     }
 }
 
+.nav__item.active {
+    background-color: var(--color-secondary);
+}
+
 .nav__item:hover {
     background-color: var(--color-secondary);
 
@@ -294,10 +298,6 @@ body.lock-scroll {
     @media (min-width: 1024px) {
         background-color: var(--color-secondary);
     }
-}
-
-.nav__item.active {
-    background-color: var(--color-secondary);
 }
 
 .nav__item--parent:hover > .hover-accent,
@@ -688,19 +688,10 @@ body.lock-scroll {
 }
 
 .portfolio-tabs__cards {
+    max-width: 100%;
     overflow: hidden;
     column-count: 1;
     column-gap: 1.25rem;
-    /* max-width: 100%;
-    margin-left: auto;
-    margin-right: auto; */
-}
-
-.portfolio-tabs__cards.layout--narrow .portfolio-card,
-.portfolio-tabs__cards.layout--narrow .portfolio-card--tall {
-    max-width: 380px;
-    /* margin-left: auto;
-    margin-right: auto; */
 }
 
 .portfolio-card,
@@ -737,11 +728,13 @@ body.lock-scroll {
     transform-origin: center;
 }
 
-.portfolio-card:hover .card-hover,
-.portfolio-card--tall:hover .card-hover {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
+@media (hover: hover) {
+    .portfolio-card:hover .card-hover,
+    .portfolio-card--tall:hover .card-hover {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
 }
 
 .card-hover::before {
@@ -773,6 +766,11 @@ body.lock-scroll {
 
     .disable-tall .portfolio-card--tall {
         aspect-ratio: 1 / 1;
+    }
+
+    .portfolio-tabs__cards.layout--narrow .portfolio-card,
+    .portfolio-tabs__cards.layout--narrow .portfolio-card--tall {
+        max-width: 380px;
     }
 
     .card-hover {
