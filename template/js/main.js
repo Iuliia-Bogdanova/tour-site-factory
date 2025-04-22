@@ -207,28 +207,35 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const tabsContainer = document.getElementById("portfolioTabs");
     const tabButtons = tabsContainer.querySelectorAll("button[data-category]");
-
     let activeTab = tabsContainer.querySelector(".btn-primary-tab");
+
+    const isActivePrimaryCurrent = () =>
+        activeTab.classList.contains("btn-primary-tab") &&
+        activeTab.classList.contains("btn-current");
 
     tabButtons.forEach((button) => {
         button.addEventListener("mouseenter", () => {
-            if (button !== activeTab) activeTab.classList.add("btn-current");
+            if (button !== activeTab && !isActivePrimaryCurrent()) {
+                activeTab.classList.add("btn-current");
+            }
         });
 
         button.addEventListener("mouseleave", () => {
-            if (button !== activeTab) activeTab.classList.remove("btn-current");
+            if (button !== activeTab && !isActivePrimaryCurrent()) {
+                activeTab.classList.remove("btn-current");
+            }
         });
 
         button.addEventListener("click", () => {
             if (button === activeTab) return;
 
-            // Сбросить старую активную
+            // Сброс старой активной
             activeTab.classList.remove("btn-primary-tab", "btn-current");
             activeTab.classList.add("btn-tab");
             activeTab.setAttribute("aria-selected", "false");
             activeTab.style.pointerEvents = "auto";
 
-            // Назначить новую активную
+            // Назначение новой активной
             button.classList.remove("btn-tab");
             button.classList.add("btn-primary-tab", "btn-current");
             button.setAttribute("aria-selected", "true");
