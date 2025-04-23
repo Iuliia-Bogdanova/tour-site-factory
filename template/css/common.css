@@ -770,7 +770,7 @@ body.lock-scroll {
 
     .portfolio-tabs__cards.layout--narrow .portfolio-card,
     .portfolio-tabs__cards.layout--narrow .portfolio-card--tall {
-        max-width: 380px;
+        max-width: 280px;
     }
 
     .card-hover {
@@ -799,6 +799,11 @@ body.lock-scroll {
     .portfolio-card,
     .portfolio-card--tall {
         margin-bottom: 1.5rem;
+    }
+
+    .portfolio-tabs__cards.layout--narrow .portfolio-card,
+    .portfolio-tabs__cards.layout--narrow .portfolio-card--tall {
+        max-width: 320px;
     }
 }
 
