@@ -292,3 +292,85 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// 7. Grow black circle
+document.addEventListener("DOMContentLoaded", () => {
+    const growCircle = document.querySelector(".spacer-inner__grow-circle");
+    const section = document.querySelector(".section__spacer");
+
+    if (!growCircle || !section) {
+        console.error("growCircle или section не найдены");
+        return;
+    }
+
+    const startSize = 68;
+    const maxScale = 160;
+    const fadeTexts = document.querySelectorAll(".spacer-fade-text");
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                window.addEventListener("scroll", onScroll);
+                onScroll();
+            } else {
+                window.removeEventListener("scroll", onScroll);
+            }
+        },
+        { threshold: 0 }
+    );
+
+    observer.observe(section);
+
+    function onScroll() {
+        const rect = section.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const triggerOffset = 350;
+
+        // Стоп-секция
+        const stopSelector = section.dataset.stopAt;
+        const stopSection = document.querySelector(stopSelector);
+        const stopRect = stopSection.getBoundingClientRect();
+
+        const stopThreshold = stopRect.top - 50;
+
+        const rawProgress =
+            (viewportHeight - rect.top - triggerOffset) / (viewportHeight * 2);
+        const distanceToStop = stopThreshold - rect.top;
+        const limitedProgress = Math.min(
+            Math.max(rawProgress, 0),
+            distanceToStop > 0 ? 1 : 0
+        );
+        const scale = 1 + (maxScale - 1) * limitedProgress;
+
+        growCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+        // Центр и радиус круга
+        const circleCenterX = window.innerWidth / 2;
+        const circleCenterY = rect.top + rect.height / 2;
+        const radius = (startSize * scale) / 2;
+
+        // Границы круга
+        const circleLeft = circleCenterX - radius;
+        const circleRight = circleCenterX + radius;
+        const circleTop = circleCenterY - radius;
+        const circleBottom = circleCenterY + radius;
+
+        let anyInCircle = false;
+
+        fadeTexts.forEach((text) => {
+            const textRect = text.getBoundingClientRect();
+
+            const overlaps =
+                textRect.right > circleLeft &&
+                textRect.left < circleRight &&
+                textRect.bottom > circleTop &&
+                textRect.top < circleBottom;
+
+            if (overlaps) {
+                anyInCircle = true;
+            }
+        });
+
+        document.body.classList.toggle("spacer-invert-active", anyInCircle);
+    }
+});
