@@ -194,3 +194,17 @@
     height: 60px;
     object-fit: cover;
 }
+
+.icon-dotted-line {
+    display: inline-block;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+        bottom: -1.5rem;
+    }
+}

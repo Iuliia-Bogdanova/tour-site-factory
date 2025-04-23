@@ -54,6 +54,9 @@
 .gap-2 {
     gap: 0.5rem;
 }
+.gap-10px {
+    gap: 0.625rem;
+}
 .gap-3 {
     gap: 1rem;
 }
@@ -66,10 +69,9 @@
 .gap-6 {
     gap: 2rem;
 }
-
-/* .gap-7 {
+.gap-7 {
     gap: 3rem;
-} */
+}
 /** bootstrap END */
 
 .visually-hidden {
@@ -85,6 +87,10 @@
 
 .mb {
     margin-bottom: var(--mb-size);
+}
+
+.mb-2rem {
+    margin-bottom: 2rem;
 }
 
 .transform-active:active {
@@ -127,6 +133,10 @@
     font-weight: 700;
     font-size: var(--font-size-subtitle);
     line-height: var(--line-height);
+
+    @media (min-width: 1024px) {
+        font-size: var(--font-size-title);
+    }
 }
 
 /* для относительного позиционирования иконки icon-title-decor для любой длины заголовка title-secondary */
@@ -145,6 +155,13 @@
     @media (min-width: 1024px) {
         font-size: var(--font-size-title);
     }
+}
+
+.title-quaternary {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: var(--line-height);
 }
 
 .text-body {
