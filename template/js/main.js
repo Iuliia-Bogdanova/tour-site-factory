@@ -327,11 +327,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getMaxScale() {
         const width = window.innerWidth;
-        if (width < 480) return 140;
+        if (width < 480) return 160;
         if (width < 768) return 100;
         if (width < 1024) return 90;
-        // if (width < 1440) return 70;
-        // if (width < 1640) return 65;
+        if (width < 1440) return 90;
+        if (width < 1640) return 60;
         return 70;
     }
 
