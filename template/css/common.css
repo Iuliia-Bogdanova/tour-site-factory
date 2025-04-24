@@ -123,7 +123,6 @@ button {
 html,
 body {
     scroll-behavior: smooth;
-    /* overflow-x: hidden; */
 }
 
 body {
@@ -831,7 +830,7 @@ body.lock-scroll {
 .spacer-fade-svg {
     color: var(--color-font);
     fill: var(--color-font);
-    /* transition: color var(--transition-03); */
+    transition: color var(--transition-03);
 }
 
 body.spacer-invert-active .spacer-fade-text,
@@ -876,6 +875,7 @@ body.spacer-invert-active .spacer-fade-svg {
     transform: translate(-50%, -50%) scale(1);
     z-index: -1;
     pointer-events: none;
+    transition: transform var(--transition-03);
 }
 
 .spacer-inner__icon {

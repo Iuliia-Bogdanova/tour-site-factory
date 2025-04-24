@@ -18,6 +18,7 @@ function updateDynamicProperty(
         minValue +
         ((windowWidth - minWidth) * (maxValue - minValue)) /
             (maxWidth - minWidth);
+
     document.documentElement.style.setProperty(
         `--${propertyName}`,
         `${value}${unit}`
@@ -304,16 +305,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const startSize = 68;
-    const maxScale = 160;
     const fadeTexts = document.querySelectorAll(".spacer-fade-text");
 
     const observer = new IntersectionObserver(
         ([entry]) => {
             if (entry.isIntersecting) {
-                window.addEventListener("scroll", onScroll);
+                window.addEventListener("scroll", onScroll, { passive: true });
+                window.addEventListener("resize", onScroll);
                 onScroll();
             } else {
                 window.removeEventListener("scroll", onScroll);
+                window.removeEventListener("resize", onScroll);
             }
         },
         { threshold: 0 }
@@ -321,30 +323,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(section);
 
+    function getMaxScale() {
+        const width = window.innerWidth;
+        if (width < 480) return 140;
+        if (width < 768) return 100;
+        if (width < 1024) return 90;
+        if (width < 1440) return 65;
+        if (width < 1640) return 60;
+        return 70;
+    }
+
     function onScroll() {
         const rect = section.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
-        const triggerOffset = 350;
-
-        // Стоп-секция
-        const stopSelector = section.dataset.stopAt;
-        const stopSection = document.querySelector(stopSelector);
-        const stopRect = stopSection.getBoundingClientRect();
-
-        const stopThreshold = stopRect.top - 50;
+        const triggerOffset = 300;
+        const maxScale = getMaxScale();
 
         const rawProgress =
             (viewportHeight - rect.top - triggerOffset) / (viewportHeight * 2);
-        const distanceToStop = stopThreshold - rect.top;
-        const limitedProgress = Math.min(
-            Math.max(rawProgress, 0),
-            distanceToStop > 0 ? 1 : 0
-        );
-        const scale = 1 + (maxScale - 1) * limitedProgress;
 
+        const limitedProgress = Math.min(Math.max(rawProgress, 0), 1);
+
+        const scale = 1 + (maxScale - 1) * limitedProgress;
         growCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
 
-        // Центр и радиус круга
+        // Центр круга
         const circleCenterX = window.innerWidth / 2;
         const circleCenterY = rect.top + rect.height / 2;
         const radius = (startSize * scale) / 2;
@@ -374,3 +377,78 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.toggle("spacer-invert-active", anyInCircle);
     }
 });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const growCircle = document.querySelector(".spacer-inner__grow-circle");
+//     const section = document.querySelector(".section__spacer");
+
+//     if (!growCircle || !section) {
+//         console.error("growCircle или section не найдены");
+//         return;
+//     }
+
+//     const startSize = 68; // Начальный размер круга (в пикселях или rem, зависит от стилей)
+//     const fixedScale = 132; // Фиксированный масштаб (от 1 до 160)
+//     const fadeTexts = document.querySelectorAll(".spacer-fade-text");
+
+//     // Наблюдатель для отслеживания вхождения секции в область видимости
+//     const observer = new IntersectionObserver(
+//         ([entry]) => {
+//             if (entry.isIntersecting) {
+//                 window.addEventListener("scroll", onScroll, { passive: true });
+//                 window.addEventListener("resize", onScroll);
+//                 onScroll(); // Первоначальный вызов
+//             } else {
+//                 window.removeEventListener("scroll", onScroll);
+//                 window.removeEventListener("resize", onScroll);
+//             }
+//         },
+//         { threshold: 0 }
+//     );
+
+//     observer.observe(section);
+
+//     // Функция для изменения масштаба круга при прокрутке
+//     function onScroll() {
+//         const rect = section.getBoundingClientRect();
+//         const viewportHeight = window.innerHeight;
+//         const triggerOffset = 300;
+
+//         const rawProgress =
+//             (viewportHeight - rect.top - triggerOffset) / (viewportHeight * 2);
+//         const limitedProgress = Math.min(Math.max(rawProgress, 0), 1);
+
+//         // Фиксированный масштаб круга 160 (он будет увеличиваться или уменьшаться в зависимости от прокрутки)
+//         const scale = 1 + (fixedScale - 1) * limitedProgress;
+//         growCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+//         // Центр круга
+//         const circleCenterX = window.innerWidth / 2;
+//         const circleCenterY = rect.top + rect.height / 2;
+//         const radius = (startSize * scale) / 2;
+
+//         // Границы круга
+//         const circleLeft = circleCenterX - radius;
+//         const circleRight = circleCenterX + radius;
+//         const circleTop = circleCenterY - radius;
+//         const circleBottom = circleCenterY + radius;
+
+//         let anyInCircle = false;
+
+//         fadeTexts.forEach((text) => {
+//             const textRect = text.getBoundingClientRect();
+
+//             const overlaps =
+//                 textRect.right > circleLeft &&
+//                 textRect.left < circleRight &&
+//                 textRect.bottom > circleTop &&
+//                 textRect.top < circleBottom;
+
+//             if (overlaps) {
+//                 anyInCircle = true;
+//             }
+//         });
+
+//         document.body.classList.toggle("spacer-invert-active", anyInCircle);
+//     }
+// });
