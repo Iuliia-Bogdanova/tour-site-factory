@@ -826,39 +826,6 @@ body.lock-scroll {
 /* Portfolio END*/
 
 /* Spacer */
-.spacer-fade-text,
-.spacer-fade-svg {
-    color: var(--color-font);
-    fill: var(--color-font);
-    transition: color var(--transition-03);
-}
-
-body.spacer-invert-active .spacer-fade-text,
-body.spacer-invert-active .spacer-fade-svg {
-    color: var(--color-secondary);
-    fill: var(--color-secondary);
-}
-/* Spacer END*/
-
-/* Tariffs */
-.tariffs__title {
-    width: 90%;
-}
-
-.tariff-card {
-    padding-top: 3rem;
-
-    @media (min-width: 768px) {
-        padding-top: 3.5rem;
-    }
-}
-
-.tariff-card__price {
-    width: auto;
-    flex-shrink: 0;
-    color: var(--color-accent);
-}
-
 .spacer-inner {
     position: relative;
     /* padding: 7rem 0 7rem; */
@@ -890,5 +857,38 @@ body.spacer-invert-active .spacer-fade-svg {
     width: 24px;
     height: 24px;
     rotate: 90deg;
+}
+
+.spacer-fade-text,
+.spacer-fade-svg {
+    color: var(--color-font);
+    fill: var(--color-font);
+    transition: color var(--transition-03);
+}
+
+.spacer-fade-text.in-circle,
+.spacer-fade-svg.in-circle {
+    color: var(--color-secondary);
+    fill: var(--color-secondary);
+}
+/* Spacer END*/
+
+/* Tariffs */
+.tariffs__title {
+    width: 90%;
+}
+
+.tariff-card {
+    padding-top: 3rem;
+
+    @media (min-width: 768px) {
+        padding-top: 3.5rem;
+    }
+}
+
+.tariff-card__price {
+    width: auto;
+    flex-shrink: 0;
+    color: var(--color-accent);
 }
 /* Tariffs END*/

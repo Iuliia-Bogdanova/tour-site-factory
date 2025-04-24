@@ -89,7 +89,7 @@
         <circle cx="30" cy="30" r="30" fill="#D13A1F" fill-opacity="0.2"/>
         <circle cx="60" cy="30" r="4" fill="#D13A1F"/>
     </symbol>
-    <symbol id="icon-dotted-line" viewBox="0 0 571 4" preserveAspectRatio="none" fill="none">
+    <symbol id="icon-dotted-line" viewBox="0 0 571 4" preserveAspectRatio="xMidYMid slice" fill="none">
         <circle cx="2" cy="2" r="2" fill="currentColor" />
         <circle cx="14" cy="2" r="2" fill="currentColor" />
         <circle cx="26" cy="2" r="2" fill="currentColor" />
