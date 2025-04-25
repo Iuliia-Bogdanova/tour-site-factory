@@ -874,6 +874,30 @@ body.lock-scroll {
 /* Spacer END*/
 
 /* Tariffs */
+.section__tariffs {
+    margin-bottom: 40px;
+
+    @media (min-width: 768px) {
+        margin-bottom: 50px;
+    }
+
+    @media (min-width: 600px) {
+        margin-bottom: 50px;
+    }
+
+    @media (min-width: 900px) {
+        margin-bottom: 60px;
+    }
+
+    @media (min-width: 1280px) {
+        margin-bottom: 80px;
+    }
+
+    @media (min-width: 1440px) {
+        margin-bottom: 0;
+    }
+}
+
 .tariffs__title {
     width: 90%;
 }
@@ -891,6 +915,34 @@ body.lock-scroll {
     flex-shrink: 0;
     color: var(--color-accent);
 }
+
+.stop-scale {
+    display: inline-block;
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 1px;
+    margin-top: 10px;
+
+    @media (min-width: 600px) {
+        margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+        margin-top: 60px;
+    }
+
+    @media (min-width: 900px) {
+        margin-top: 80px;
+    }
+
+    @media (min-width: 1024px) {
+        margin-top: 160px;
+    }
+
+    @media (min-width: 1280px) {
+        margin-top: 200px;
+    }
+}
 /* Tariffs END*/
 
 /* Offices */
@@ -899,6 +951,10 @@ body.lock-scroll {
 
     @media (min-width: 768px) {
         padding-top: 2rem;
+    }
+
+    @media (min-width: 1440px) {
+        padding-top: 0;
     }
 }
 
@@ -910,11 +966,6 @@ body.lock-scroll {
         align-items: center;
     }
 }
-
-/* .offices-info {
-    flex-shrink: 0;
-    width: 100%;
-} */
 
 .offices__text-body {
     color: var(--color-primary);
