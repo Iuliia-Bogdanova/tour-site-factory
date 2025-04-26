@@ -295,117 +295,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 7. Grow black circle
-// document.addEventListener("DOMContentLoaded", () => {
-//     const growCircle = document.querySelector(".spacer-inner__grow-circle");
-//     const section = document.querySelector(".section__spacer");
-//     const stopScaleEl = document.querySelector(".stop-scale");
-
-//     if (!growCircle || !section || !stopScaleEl) {
-//         console.error("growCircle, section или stopScale не найдены");
-//         return;
-//     }
-
-//     const startSize = 68;
-//     const maxScale = 160;
-//     const fadeElements = document.querySelectorAll(
-//         ".spacer-fade-text, .spacer-fade-svg"
-//     );
-
-//     let dynamicMaxScale = maxScale;
-//     let scaleFrozen = false;
-
-//     const observer = new IntersectionObserver(
-//         ([entry]) => {
-//             if (entry.isIntersecting) {
-//                 window.addEventListener("scroll", onScroll, { passive: true });
-//                 window.addEventListener("resize", onScroll);
-//                 onScroll();
-//             } else {
-//                 window.removeEventListener("scroll", onScroll);
-//                 window.removeEventListener("resize", onScroll);
-//             }
-//         },
-//         { threshold: 0 }
-//     );
-
-//     observer.observe(section);
-
-//     function onScroll() {
-//         const rect = section.getBoundingClientRect();
-//         const viewportHeight = window.innerHeight;
-//         const triggerOffset = 300;
-
-//         const rawProgress =
-//             (viewportHeight - rect.top - triggerOffset) / (viewportHeight * 2);
-//         const limitedProgress = Math.min(Math.max(rawProgress, 0), 1);
-
-//         let scale = 1 + (maxScale - 1) * limitedProgress;
-
-//         // Центр круга
-//         const circleCenterY = rect.top + rect.height / 2;
-//         const radius = (startSize * scale) / 2;
-
-//         // Получаем .stop-scale
-//         const stopRect = stopScaleEl.getBoundingClientRect();
-//         const stopY = stopRect.top + stopRect.height / 2;
-//         const stopWidth = stopRect.width;
-
-//         // Вертикальное расстояние между центром круга и stop-scale
-//         const dy = Math.abs(stopY - circleCenterY);
-
-//         let chord = 0;
-//         if (dy <= radius) {
-//             chord = 2 * Math.sqrt(radius ** 2 - dy ** 2);
-//         }
-
-//         // Логирование значений
-//         console.log({
-//             scale: scale.toFixed(2),
-//             chord: chord.toFixed(2),
-//             stopWidth: stopWidth.toFixed(2),
-//             scaleFrozen: scaleFrozen,
-//         });
-
-//         // Проверяем, если хорда достигла ширины stop-scale
-//         const offset = 20; // Можно настроить
-
-//         if (!scaleFrozen && chord >= stopWidth - offset) {
-//             dynamicMaxScale = scale;
-//             scaleFrozen = true;
-//         }
-
-//         // Если обратно вверх — размораживаем
-//         if (chord < stopWidth) {
-//             scaleFrozen = false;
-//         }
-
-//         scale = Math.min(scale, dynamicMaxScale);
-//         growCircle.style.transform = `translate(-50%, -50%) scale(${scale})`; // Исправлено
-
-//         // Обработка пересечений с другими элементами
-//         const circleCenterX = window.innerWidth / 2;
-//         const circleTop = circleCenterY - radius;
-//         const circleBottom = circleCenterY + radius;
-//         const circleLeft = circleCenterX - radius;
-//         const circleRight = circleCenterX + radius;
-
-//         fadeElements.forEach((el) => {
-//             const elRect = el.getBoundingClientRect();
-//             const overlaps =
-//                 elRect.right > circleLeft &&
-//                 elRect.left < circleRight &&
-//                 elRect.bottom > circleTop &&
-//                 elRect.top < circleBottom;
-
-//             el.classList.toggle("in-circle", overlaps);
-//         });
-//     }
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
     const growCircle = document.querySelector(".spacer-inner__grow-circle");
     const section = document.querySelector(".section__spacer");
     const stopScaleEl = document.querySelector(".stop-scale");
+    const fadeElements = document.querySelectorAll(
+        ".spacer-fade-text, .spacer-fade-svg"
+    );
 
     if (!growCircle || !section || !stopScaleEl) {
         console.error("growCircle, section или stopScale не найдены");
@@ -413,12 +309,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const startSize = 68;
-    const maxScale = 160;
-    const fadeElements = document.querySelectorAll(
-        ".spacer-fade-text, .spacer-fade-svg"
-    );
-
-    let dynamicMaxScale = maxScale;
+    const triggerOffset = 300;
+    let dynamicMaxScale = 100;
     let scaleFrozen = false;
 
     const observer = new IntersectionObserver(
@@ -438,59 +330,34 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
 
     function onScroll() {
-        const rect = section.getBoundingClientRect();
+        const { top, height } = section.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
-        const triggerOffset = 300;
-
         const rawProgress =
-            (viewportHeight - rect.top - triggerOffset) / (viewportHeight * 2);
+            (viewportHeight - top - triggerOffset) / (viewportHeight * 2);
         const limitedProgress = Math.min(Math.max(rawProgress, 0), 1);
 
-        let scale = 1 + (maxScale - 1) * limitedProgress;
+        let scale = 1 + limitedProgress * 100;
 
-        // Центр круга
-        const circleCenterX = window.innerWidth / 2;
-        const circleCenterY = rect.top + rect.height / 2;
+        const centerX = window.innerWidth / 2;
+        const centerY = top + height / 2;
         const radius = (startSize * scale) / 2;
-        const circleBottom = circleCenterY + radius; // Нижняя точка круга
-        const circleLeft = circleCenterX - radius;
-        const circleRight = circleCenterX + radius;
+        const circleTop = centerY - radius;
+        const circleBottom = centerY + radius;
+        const circleLeft = centerX - radius;
+        const circleRight = centerX + radius;
 
-        // Получаем .stop-scale
-        const stopRect = stopScaleEl.getBoundingClientRect();
-        const stopTop = stopRect.top; // Верхняя граница .stop-scale
+        const stopTop = stopScaleEl.getBoundingClientRect().top;
+        const touches = circleBottom >= stopTop;
 
-        // Проверка касания: нижняя точка круга касается .stop-scale
-        const offset = 20; // Настраиваемый отступ (в пикселях)
-        const touches = circleBottom >= stopTop - offset;
-
-        // Логирование для отладки
-        console.log({
-            scale: scale.toFixed(2),
-            circleBottom: circleBottom.toFixed(2),
-            stopTop: stopTop.toFixed(2),
-            circleCenterY: circleCenterY.toFixed(2),
-            radius: radius.toFixed(2),
-            touches: touches,
-            scaleFrozen: scaleFrozen,
-        });
-
-        if (!scaleFrozen && touches) {
+        if (touches && !scaleFrozen) {
             dynamicMaxScale = scale;
             scaleFrozen = true;
-        }
-
-        // Разморозка при скролле вверх
-        if (!touches) {
+        } else if (!touches) {
             scaleFrozen = false;
         }
 
         scale = Math.min(scale, dynamicMaxScale);
         growCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
-
-        // Обработка пересечений с другими элементами
-        const circleTop = circleCenterY - radius;
-        const circleBottomComputed = circleCenterY + radius; // Для fadeElements
 
         fadeElements.forEach((el) => {
             const elRect = el.getBoundingClientRect();
@@ -498,9 +365,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 elRect.right > circleLeft &&
                 elRect.left < circleRight &&
                 elRect.bottom > circleTop &&
-                elRect.top < circleBottomComputed;
+                elRect.top < circleBottom;
 
             el.classList.toggle("in-circle", overlaps);
+        });
+
+        // Отладка
+        console.log({
+            scale: scale.toFixed(2),
+            centerY: centerY.toFixed(2),
+            radius: radius.toFixed(2),
+            stopTop: stopTop.toFixed(2),
+            circleBottom: circleBottom.toFixed(2),
+            frozen: scaleFrozen,
         });
     }
 });
