@@ -35,18 +35,19 @@ window.addEventListener("resize", () => {
 
 // 3. Swiper слайдер
 document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper(".swiper-container", {
+    const swiper = new Swiper(".slider-top", {
         loop: true,
         initialSlide: 0,
         slidesPerView: 1,
         spaceBetween: 15,
         centeredSlides: true,
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".slider-top-next",
+            prevEl: ".slider-top-prev",
         },
         pagination: {
-            el: ".swiper-pagination",
+            // el: ".swiper-pagination",
+            el: ".slider-top-pagination",
             clickable: true,
             // dynamicBullets: true,
             // dynamicMainBullets: 1,

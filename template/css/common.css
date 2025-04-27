@@ -939,7 +939,7 @@ body.lock-scroll {
     }
 
     @media (min-width: 1280px) {
-        margin-top: 200px;
+        margin-top: 160px;
     }
 }
 /* Tariffs END*/
@@ -952,17 +952,15 @@ body.lock-scroll {
         padding-top: 2rem;
     }
 
-    @media (min-width: 1440px) {
+    @media (min-width: 1400px) {
         padding-top: 0;
     }
 }
 
 .offices__inner {
-    flex-direction: column;
-
-    @media (min-width: 1440px) {
-        flex-direction: row;
+    @media (min-width: 1400px) {
         align-items: center;
+        gap: 0;
     }
 }
 
@@ -978,9 +976,5 @@ body.lock-scroll {
     width: 100%;
     height: auto;
     object-fit: cover;
-
-    @media (min-width: 1440px) {
-        width: 60%;
-    }
 }
 /* Offices END*/
