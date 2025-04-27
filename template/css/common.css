@@ -320,7 +320,6 @@ body.lock-scroll {
     position: relative;
     display: flex;
     align-items: center;
-    /* padding-left: 1rem; */
     padding-left: calc(var(--bs-gutter-x) * 0.5);
     gap: 0.25rem;
     font-weight: 500;
@@ -368,7 +367,6 @@ body.lock-scroll {
 
     @media (min-width: 1440px) {
         margin-top: 1rem;
-        /* margin-left: 1.2rem; */
     }
 }
 

@@ -343,6 +343,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 8. Swiper clients-slider
 document.addEventListener("DOMContentLoaded", function () {
+    const nextButton = document.querySelector(".clients-slider-next");
+
     const clientsSlider = new Swiper(".clients-slider", {
         loop: true,
         slidesPerView: "auto",

@@ -111,6 +111,7 @@
 
 .no-tap-highlight {
     -webkit-tap-highlight-color: transparent;
+    pointer-events: auto;
 }
 
 .pos-relative {
