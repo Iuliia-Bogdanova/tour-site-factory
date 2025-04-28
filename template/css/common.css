@@ -943,6 +943,14 @@ body.lock-scroll {
 /* Tariffs END*/
 
 /* Offices */
+.section__offices {
+    margin-bottom: 3.125rem;
+
+    @media (min-width: 768px) {
+        margin-bottom: 4.375rem;
+    }
+}
+
 .offices-clients__wrap {
     padding-top: 1.5rem;
 
@@ -976,3 +984,95 @@ body.lock-scroll {
     object-fit: cover;
 }
 /* Offices END*/
+
+/* Request-form */
+.section__request-form {
+    width: 100%;
+    background-image: url("../../assets/images/slider/slider-bg.png");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media (min-width: 768px) {
+        background-image: url("../../assets/images/slider/slider-bg-desktop.png");
+        background-position: right center;
+    }
+
+    @media (min-width: 1440px) {
+        background-position: calc(100% - (100vw - 1210px) / 2 + 130px) 15px;
+    }
+}
+
+.request-form__outer {
+    overflow-x: hidden;
+}
+
+.request-form__spacer {
+    @media (min-width: 992px) {
+        height: 50px;
+        background-color: var(--color-secondary);
+    }
+}
+
+.request-form__wrap {
+    padding: 3rem 0;
+
+    @media (min-width: 480px) {
+        padding: 3.625rem 0;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 3rem 0;
+    }
+}
+
+.request-form__promo {
+    color: var(--color-bg);
+}
+
+.promo-text {
+    font-family: var(--font-secondary);
+}
+
+.request-form-input {
+    width: 100%;
+    max-width: 372px;
+}
+
+.request-form-input input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    outline: none;
+}
+
+.request-form__image {
+    width: 100%;
+    height: 100%;
+}
+
+.request-form__image::after {
+    @media (min-width: 992px) {
+        position: absolute;
+        content: "";
+        width: 560px;
+        height: 400px;
+        top: -50px;
+        right: -100px;
+        background-image: url("../../assets/images/request-tablet.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.request-img {
+    width: auto;
+    height: 390px;
+    object-fit: contain;
+    z-index: 10;
+
+    @media (min-width: 992px) {
+        height: 305px;
+    }
+}
+/* Request-form END */

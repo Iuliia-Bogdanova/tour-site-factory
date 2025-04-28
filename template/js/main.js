@@ -354,9 +354,4 @@ function initClientsSlider() {
             nextSlideMessage: "Следующий слайд",
         },
     });
-
-    // Убираем tabindex у всех слайдов
-    slider.slides.forEach((slide) => {
-        slide.removeAttribute("tabindex");
-    });
 }
