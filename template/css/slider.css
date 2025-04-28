@@ -332,7 +332,15 @@
 .client-slide:focus,
 .client-slide:active,
 .client-slide img:focus,
-.client-slide img:active {
+.client-slide img:active,
+.clients-slider .swiper-slide:focus,
+.clients-slider .swiper-slide:focus-visible {
     outline: none;
+}
+
+.clients-slider .swiper-slide,
+.clients-slider .swiper-slide * {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
 }
 /* Clients-slider Swiper END */
