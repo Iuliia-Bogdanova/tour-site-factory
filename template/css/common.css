@@ -1076,3 +1076,10 @@ body.lock-scroll {
     }
 }
 /* Request-form END */
+
+/* Reviews */
+.reviews-tabs__switcher button {
+    /* padding: 0; */
+    /* font-size: var(--font-size-small); */
+}
+/* Reviews END*/

@@ -97,6 +97,19 @@
     }
 }
 
+.btn-link {
+    padding: 0;
+    border: none;
+    transition: color var(--transition-03), transform 0.3s;
+}
+
+.btn-link:hover,
+.btn-link:active {
+    background-color: transparent;
+    color: var(--color-accent);
+    transform: scale(0.98);
+}
+
 /* .btn-active {
     background-color: var(--color-accent);
     color: var(--color-secondary);
