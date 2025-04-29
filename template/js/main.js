@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     initPortfolioFilter();
     initGrowCircle();
     initClientsSlider();
+    initReviewsSlider();
+    initReviewZoom();
 });
 
 // 1. Бургер-меню
@@ -353,5 +355,104 @@ function initClientsSlider() {
             prevSlideMessage: "Предыдущий слайд",
             nextSlideMessage: "Следующий слайд",
         },
+    });
+}
+
+// 9. Swiper reviews-slider
+function initReviewsSlider() {
+    new Swiper(".reviews-slider", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 450,
+        navigation: {
+            nextEl: ".reviews-slider-next",
+            prevEl: ".reviews-slider-prev",
+        },
+        a11y: {
+            prevSlideMessage: "Предыдущий слайд",
+            nextSlideMessage: "Следующий слайд",
+        },
+    });
+}
+
+// Review-img zoom
+// function initReviewZoom() {
+//     const sliderContainer =
+//         document.querySelector(".slider-container") || document.body;
+
+//     sliderContainer.addEventListener("click", function (e) {
+//         const targetImg = e.target.closest(".review-img");
+
+//         if (!targetImg) return;
+
+//         e.stopPropagation();
+
+//         const isZoomed = targetImg.classList.contains("zoomed");
+
+//         // Снять зум
+//         document
+//             .querySelectorAll(".review-img.zoomed")
+//             .forEach((el) => el.classList.remove("zoomed"));
+
+//         // Включить зум
+//         if (!isZoomed) {
+//             targetImg.classList.add("zoomed");
+//         }
+//     });
+
+//     // Убрать зум
+//     document.addEventListener("click", function (e) {
+//         if (
+//             !e.target.closest(".slider-container") &&
+//             !e.target.closest(".review-img")
+//         ) {
+//             document
+//                 .querySelectorAll(".review-img.zoomed")
+//                 .forEach((el) => el.classList.remove("zoomed"));
+//         }
+//     });
+// }
+
+function initReviewZoom() {
+    // Делегируем события на статический родительский элемент (например, body или контейнер слайдера)
+    const sliderContainer =
+        document.querySelector(".slider-container") || document.body;
+
+    sliderContainer.addEventListener("click", function (e) {
+        const target = e.target.closest(".review-img");
+
+        // Если клик по изображению
+        if (target) {
+            e.stopPropagation(); // Останавливаем всплытие, чтобы не мешать слайдеру
+
+            if (target.classList.contains("zoomed")) {
+                // Если изображение уже zoomed, убираем зум
+                target.classList.remove("zoomed");
+            } else {
+                // Убираем зум у всех изображений
+                document
+                    .querySelectorAll(".review-img.zoomed")
+                    .forEach((el) => {
+                        el.classList.remove("zoomed");
+                    });
+                // Добавляем зум текущему изображению
+                target.classList.add("zoomed");
+            }
+        } else {
+            // Если клик не по изображению, сбрасываем зум у всех
+            document.querySelectorAll(".review-img.zoomed").forEach((el) => {
+                el.classList.remove("zoomed");
+            });
+        }
+    });
+
+    // Сбрасываем зум при клике вне слайдера
+    document.addEventListener("click", function (e) {
+        if (!e.target.closest(".slider-container")) {
+            document.querySelectorAll(".review-img.zoomed").forEach((el) => {
+                el.classList.remove("zoomed");
+            });
+        }
     });
 }

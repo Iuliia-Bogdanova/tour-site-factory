@@ -1383,28 +1383,80 @@
             <!-- Reviews -->
             <section class="section__reviews mb">
                 <div class="container">
-                    <div class="reviews__header d-flex flex-column gap-6">
-                        <h2 class="title-secondary">Отзыв<span class="title-end"><span class="icon-title-decor"><svg class="icon icon--original" width="64" height="60"><use href="/assets/icons/sprite.svg#icon-title-decor"></use></svg></span></span>ы</h2>
-                        <div class="reviews__controls d-flex align-center">
-                            <div class="reviews-tabs__switcher d-flex align-center gap-6" role="tablist" id="reviewsTabs">
-                                <button class="btn btn-secondary btn-link" data-category="dev" aria-selected="true" title="Разработка сайтов">Разработка сайтов</button>
-                                <button class="btn btn-tab btn-link" data-category="seo" title="Продвижение">Продвижение</button>
+                    <div class="reviews__wrapper d-flex flex-column gap-20-40">
+                        <div class="reviews__header d-flex flex-column gap-6">
+                            <h2 class="title-secondary">Отзыв<span class="title-end"><span class="icon-title-decor"><svg class="icon icon--original" width="64" height="60"><use href="/assets/icons/sprite.svg#icon-title-decor"></use></svg></span></span>ы</h2>
+                            <div class="reviews__controls d-flex-between-center">
+                                <div class="reviews-tabs__switcher d-flex-between-center gap-6" role="tablist" id="reviewsTabs">
+                                    <button class="btn btn-secondary btn-link" data-category="dev" aria-selected="true" title="Разработка сайтов">Разработка сайтов</button>
+                                    <button class="btn btn-tab btn-link" data-category="seo" title="Продвижение">Продвижение</button>
+                                </div>
+                            <div class="reviews-slider__header pos-relative">
+                                <div class="swiper-button-prev reviews-slider-prev arrow-prev  d-flex-center-center no-tap-highlight">
+                                    <svg class="icon" width="32" height="32">
+                                        <use href="/assets/icons/sprite.svg#icon-arrow"></use>
+                                    </svg>
+                                </div>
+                                <div class="swiper-button-next reviews-slider-next arrow-next d-flex-center-center no-tap-highlight">
+                                    <svg class="icon" width="32" height="32">
+                                        <use href="/assets/icons/sprite.svg#icon-arrow"></use>
+                                    </svg>
+                                </div>
                             </div>
-                            
-
-                            <!-- Стрелки -->
-                            <div class="swiper-buttons d-flex gap-1">
-                            <button class="swiper-button-prev" aria-label="Назад">
-                                <!-- иконка -->
-                            </button>
-                            <button class="swiper-button-next" aria-label="Вперед">
-                                <!-- иконка -->
-                            </button>
+                        </div>
+                        <div class="swiper-container reviews-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide review-slide d-flex gap-6">
+                                    <div class="review__item d-flex gap-3">
+                                        <svg class="icon icon-quote">
+                                            <use href="/assets/icons/sprite.svg#icon-quote">
+                                            </use>
+                                        </svg>
+                                        <div class="review-content d-flex flex-column gap-3">
+                                            <p class="review-text">Завершение работы над нашим сайтом близится к дате 21-й годовщины турфирмы.<br>Вне всяких сомнений, наш сайт себя оправдает в самое ближайшее время и даст новые возможности развивать бизнес в плодотворном сотрудничестве!<br>Семь Ветров — сплочённая воедино команда профессионалов, собранная воедино! У вас "ВСЕ ГЕНИАЛЬНОЕ — ПРОСТО!» Сердечное спасибо всей команде!
+                                            </p>
+                                            <p class="review-sign fw-600">Генеральный директор ООО «Белавиасервис» Рогова И.А.</p>
+                                        </div>
+                                    </div>
+                                    <div class="review-img d-flex-center-center">
+                                        <img src="/assets/images/review-1.png" alt="Отзыв 1" width="186" height="260" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide review-slide d-flex gap-6">
+                                    <div class="review__item d-flex gap-3">
+                                        <svg class="icon icon-quote">
+                                            <use href="/assets/icons/sprite.svg#icon-quote">
+                                            </use>
+                                        </svg>
+                                        <div class="review-content d-flex flex-column gap-3">
+                                            <p class="review-text">Завершение работы над нашим сайтом близится к дате 21-й годовщины турфирмы.<br>Вне всяких сомнений, наш сайт себя оправдает в самое ближайшее время и даст новые возможности развивать бизнес в плодотворном сотрудничестве!<br>Семь Ветров — сплочённая воедино команда профессионалов, собранная воедино! У вас "ВСЕ ГЕНИАЛЬНОЕ — ПРОСТО!» Сердечное спасибо всей команде!
+                                            </p>
+                                            <p class="review-sign fw-600">Генеральный директор ООО «Белавиасервис» Рогова И.А.</p>
+                                        </div>
+                                    </div>
+                                    <div class="review-img d-flex-center-center">
+                                        <img src="/assets/images/review-1.png" alt="Отзыв 1" width="186" height="260" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide review-slide d-flex gap-6">
+                                    <div class="review__item d-flex gap-3">
+                                        <svg class="icon icon-quote">
+                                            <use href="/assets/icons/sprite.svg#icon-quote">
+                                            </use>
+                                        </svg>
+                                        <div class="review-content d-flex flex-column gap-3">
+                                            <p class="review-text">Завершение работы над нашим сайтом близится к дате 21-й годовщины турфирмы.<br>Вне всяких сомнений, наш сайт себя оправдает в самое ближайшее время и даст новые возможности развивать бизнес в плодотворном сотрудничестве!<br>Семь Ветров — сплочённая воедино команда профессионалов, собранная воедино! У вас "ВСЕ ГЕНИАЛЬНОЕ — ПРОСТО!» Сердечное спасибо всей команде!
+                                            </p>
+                                            <p class="review-sign fw-600">Генеральный директор ООО «Белавиасервис» Рогова И.А.</p>
+                                        </div>
+                                    </div>
+                                    <div class="review-img d-flex-center-center">
+                                        <img src="/assets/images/review-1.png" alt="Отзыв 1" width="186" height="260" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    
                 </div>
             </section>
             <!-- /Reviews -->
@@ -1420,3 +1472,6 @@
         <script src="template/js/main.js"></script>
     </body>
 </html>
+
+
+                        
