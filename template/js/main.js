@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initClientsSlider();
     initReviewsSlider();
     initReviewZoom();
+    initPartnersSlider();
 });
 
 // 1. Бургер-меню
@@ -376,83 +377,59 @@ function initReviewsSlider() {
     });
 }
 
-// Review-img zoom
-// function initReviewZoom() {
-//     const sliderContainer =
-//         document.querySelector(".slider-container") || document.body;
-
-//     sliderContainer.addEventListener("click", function (e) {
-//         const targetImg = e.target.closest(".review-img");
-
-//         if (!targetImg) return;
-
-//         e.stopPropagation();
-
-//         const isZoomed = targetImg.classList.contains("zoomed");
-
-//         // Снять зум
-//         document
-//             .querySelectorAll(".review-img.zoomed")
-//             .forEach((el) => el.classList.remove("zoomed"));
-
-//         // Включить зум
-//         if (!isZoomed) {
-//             targetImg.classList.add("zoomed");
-//         }
-//     });
-
-//     // Убрать зум
-//     document.addEventListener("click", function (e) {
-//         if (
-//             !e.target.closest(".slider-container") &&
-//             !e.target.closest(".review-img")
-//         ) {
-//             document
-//                 .querySelectorAll(".review-img.zoomed")
-//                 .forEach((el) => el.classList.remove("zoomed"));
-//         }
-//     });
-// }
-
+// 10. Review-img zoom
 function initReviewZoom() {
-    // Делегируем события на статический родительский элемент (например, body или контейнер слайдера)
-    const sliderContainer =
-        document.querySelector(".slider-container") || document.body;
+    document.addEventListener("click", function (e) {
+        const clickedImg = e.target.closest(".review-img");
 
-    sliderContainer.addEventListener("click", function (e) {
-        const target = e.target.closest(".review-img");
+        if (clickedImg) {
+            const imgElement = clickedImg.querySelector("img");
 
-        // Если клик по изображению
-        if (target) {
-            e.stopPropagation(); // Останавливаем всплытие, чтобы не мешать слайдеру
-
-            if (target.classList.contains("zoomed")) {
-                // Если изображение уже zoomed, убираем зум
-                target.classList.remove("zoomed");
+            if (clickedImg.classList.contains("zoomed")) {
+                // Снять зум кликом по зумнутой картинке
+                clickedImg.classList.remove("zoomed");
+                imgElement.style.transform = "scale(1)";
             } else {
-                // Убираем зум у всех изображений
-                document
-                    .querySelectorAll(".review-img.zoomed")
-                    .forEach((el) => {
-                        el.classList.remove("zoomed");
-                    });
-                // Добавляем зум текущему изображению
-                target.classList.add("zoomed");
+                // Применить зум/transform
+                clickedImg.classList.remove("zoomed");
+                imgElement.style.transform = "scale(1)";
+
+                clickedImg.classList.add("zoomed");
+                imgElement.style.transform = "";
             }
         } else {
-            // Если клик не по изображению, сбрасываем зум у всех
-            document.querySelectorAll(".review-img.zoomed").forEach((el) => {
-                el.classList.remove("zoomed");
-            });
+            // Убрать зум кликом вне картинки
+            const zoomedEl = document.querySelector(".review-img.zoomed");
+            if (zoomedEl) {
+                zoomedEl.classList.remove("zoomed");
+                zoomedEl.querySelector("img").style.transform = "scale(1)";
+            }
         }
     });
+}
 
-    // Сбрасываем зум при клике вне слайдера
-    document.addEventListener("click", function (e) {
-        if (!e.target.closest(".slider-container")) {
-            document.querySelectorAll(".review-img.zoomed").forEach((el) => {
-                el.classList.remove("zoomed");
-            });
-        }
+//11. Swiper partners-slider
+function initPartnersSlider() {
+    new Swiper(".partners-slider", {
+        loop: true,
+        slidesPerView: "auto",
+        spaceBetween: 40,
+        speed: 200,
+        navigation: {
+            nextEl: ".partners-slider-next",
+            prevEl: ".partners-slider-prev",
+        },
+        a11y: {
+            prevSlideMessage: "Предыдущий слайд",
+            nextSlideMessage: "Следующий слайд",
+        },
+        breakpoints: {
+            1024: {
+                spaceBetween: 50,
+            },
+            1440: {
+                spaceBetween: 80,
+            },
+        },
     });
 }

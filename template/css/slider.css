@@ -283,7 +283,7 @@
 }
 /* Swiper End */
 
-/* Clients-slider Swiper*/
+/* Swiper Clients-slider & Partners-slider */
 .clients-slider__inner {
     width: 100%;
 }
@@ -343,4 +343,8 @@
     -webkit-tap-highlight-color: transparent;
     tap-highlight-color: transparent;
 }
-/* Clients-slider Swiper END */
+
+.swiper-slide.partner-slide {
+    width: auto;
+}
+/* Swiper Clients-slider & Partners-slider END */
