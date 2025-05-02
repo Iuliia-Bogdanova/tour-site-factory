@@ -292,28 +292,40 @@ body.lock-scroll {
     background-color: var(--color-secondary);
 }
 
-.nav__item:hover {
-    background-color: var(--color-secondary);
+.nav__item--parent > .hover-accent,
+.hover-accent use {
+    color: var(--color-font);
+    transition: color 0.2s ease;
 
     @media (min-width: 1024px) {
-        background-color: inherit;
+        color: var(--color-secondary);
     }
 }
 
-.nav__item--parent:hover {
-    @media (min-width: 1024px) {
-        background-color: var(--color-secondary);
-    }
+.nav__item--child > .nav__link--child {
+    color: var(--color-font);
+    transition: color 0.2s ease;
 }
 
-.nav__item--parent:hover > .hover-accent,
 .nav__item--parent.active > .hover-accent,
-.nav__item--child:hover > .hover-accent,
 .nav__item--child.active > .nav__link--child,
-.hover-accent:hover use,
 .hover-accent.active use {
     color: var(--color-accent);
     transition: color 0.2s ease;
+}
+
+@media (hover: hover) {
+    .nav__item:hover {
+        background-color: var(--color-secondary);
+        color: var(--color-accent);
+    }
+
+    .nav__item--parent:hover > .hover-accent,
+    .nav__item--child:hover > .hover-accent,
+    .hover-accent:hover use {
+        color: var(--color-accent);
+        transition: color 0.2s ease;
+    }
 }
 
 .nav__link {
