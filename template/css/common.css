@@ -1172,3 +1172,31 @@ body.lock-scroll {
     padding: 2rem 0;
 }
 /* Partners END*/
+
+/* News */
+.news-img {
+    width: 81px;
+    height: 81px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.news-link {
+    font-family: var(--font-secondary);
+    color: var(--color-slider-control);
+    border-bottom: 1px solid var(--color-slider-control);
+    margin-top: 1.75rem;
+
+    @media (min-width: 768px) {
+        font-size: 18px;
+        margin-top: 2.5rem;
+    }
+}
+
+@media (hover: hover) {
+    .news-link:hover {
+        color: var(--color-accent);
+        border-bottom: 1px solid var(--color-accent);
+    }
+}
+/* News END*/
