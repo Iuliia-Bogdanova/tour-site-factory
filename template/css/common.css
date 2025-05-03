@@ -853,6 +853,7 @@ body.lock-scroll {
     pointer-events: none;
     transition: transform var(--transition-03);
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
 }
 
 .spacer-inner__icon {
@@ -886,6 +887,7 @@ body.lock-scroll {
 /* Tariffs */
 .section__tariffs {
     margin-bottom: 40px;
+    overflow: hidden;
 
     @media (min-width: 768px) {
         margin-bottom: 50px;
@@ -1133,6 +1135,10 @@ body.lock-scroll {
     font-size: var(--font-size-small);
 }
 
+.review-sign {
+    z-index: 10;
+}
+
 .review-img img {
     display: block;
     width: 100%;
@@ -1142,15 +1148,6 @@ body.lock-scroll {
     z-index: 10;
     transition: transform var(--transition-03);
 }
-
-/* .review-img:hover img {
-    transform: scale(1.5) translateY(10%);
-    cursor: zoom-out;
-
-    @media (min-width: 768px) {
-        transform: scale(1.5) translateX(-25%) translateY(25%);
-    }
-} */
 
 .review-img.zoomed img {
     transform: scale(1.5) translateY(10%);
