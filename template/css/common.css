@@ -125,6 +125,11 @@ body {
     scroll-behavior: smooth;
 }
 
+html.no-x-scroll,
+body.no-x-scroll {
+    overflow-x: hidden !important;
+}
+
 body {
     min-width: 360px;
     min-height: 100vh;
@@ -836,10 +841,6 @@ body.lock-scroll {
 /* Portfolio END*/
 
 /* Spacer */
-.spacer-inner {
-    position: relative;
-}
-
 .spacer-inner__grow-circle {
     position: absolute;
     top: 50%;
@@ -887,7 +888,6 @@ body.lock-scroll {
 /* Tariffs */
 .section__tariffs {
     margin-bottom: 40px;
-    overflow: hidden;
 
     @media (min-width: 768px) {
         margin-bottom: 50px;

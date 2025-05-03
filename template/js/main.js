@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initClientsSlider();
     initReviewsSlider();
     initReviewZoom();
+    initReviewsFilter();
     initPartnersSlider();
 });
 
@@ -314,6 +315,17 @@ function initGrowCircle() {
         scale = Math.min(scale, dynamicMaxScale);
         growCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
 
+        // Запретить горизонтальный скролл при прокрутке
+        const html = document.documentElement;
+        const body = document.body;
+        if (scale > 1.01) {
+            html.classList.add("no-x-scroll");
+            body.classList.add("no-x-scroll");
+        } else {
+            html.classList.remove("no-x-scroll");
+            body.classList.remove("no-x-scroll");
+        }
+
         fadeElements.forEach((el) => {
             const elRect = el.getBoundingClientRect();
             const overlaps =
@@ -408,7 +420,24 @@ function initReviewZoom() {
     });
 }
 
-//11. Swiper partners-slider
+// 11. Заготовка скрипта фильтрации слайдов отзывов
+function initReviewsFilter() {
+    const buttons = document.querySelectorAll("[data-category]");
+    const slides = document.querySelectorAll(".review-slide");
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const category = btn.getAttribute("data-category");
+
+            slides.forEach((slide) => {
+                slide.style.display =
+                    slide.dataset.category === category ? "flex" : "none";
+            });
+        });
+    });
+}
+
+//12. Swiper partners-slider
 function initPartnersSlider() {
     new Swiper(".partners-slider", {
         loop: true,
