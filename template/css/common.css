@@ -1200,3 +1200,40 @@ body.lock-scroll {
     }
 }
 /* News END*/
+
+/* Workshops */
+.workshops-slider__header {
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 1024px) {
+        margin-bottom: 2rem;
+    }
+}
+.workshop-slide__img {
+    width: 100%;
+    height: 212px;
+    object-fit: cover;
+    border-bottom: 8px solid var(--color-accent);
+}
+
+.workshop-info {
+    overflow: hidden;
+    transition: max-height var(--transition-03);
+}
+
+.workshop-info.collapsed {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(1.5em * 6);
+}
+
+/* .workshop-info.expanded {
+    display: block;
+    max-height: none;
+    max-height: 1000px; 
+} */
+
+/* Workshops END*/

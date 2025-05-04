@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initReviewZoom();
     initReviewsFilter();
     initPartnersSlider();
+    initWorkshopToggle();
 });
 
 // 1. Бургер-меню
@@ -460,5 +461,50 @@ function initPartnersSlider() {
                 spaceBetween: 80,
             },
         },
+    });
+}
+
+// 13. Плавное разворачивание и автоскролл workshop-info
+function initWorkshopToggle() {
+    const buttons = document.querySelectorAll(".btn-info-toggle");
+
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            button.blur(); // Убрать фокус чтобы не было залипания цвета
+            const slide = button.closest(".swiper-slide");
+            const textBlock = slide?.querySelector(".workshop-info");
+            if (!textBlock) return;
+
+            const collapsedHeight =
+                parseFloat(getComputedStyle(textBlock).lineHeight) * 6;
+
+            const isExpanded = textBlock.classList.contains("expanded");
+
+            if (isExpanded) {
+                // Свернуть с ограничением на высоту
+                textBlock.style.maxHeight = collapsedHeight + "px";
+            } else {
+                // Развернуть
+                textBlock.style.maxHeight = textBlock.scrollHeight + "px";
+            }
+
+            textBlock.classList.toggle("expanded");
+            textBlock.classList.toggle("collapsed", isExpanded);
+            button.textContent = isExpanded ? "Подробнее" : "Скрыть";
+
+            // Автоскролл при разворачивании
+            if (!isExpanded) {
+                setTimeout(() => {
+                    const rect = textBlock.getBoundingClientRect();
+                    const isOutOfView = rect.bottom > window.innerHeight;
+                    if (isOutOfView) {
+                        textBlock.scrollIntoView({
+                            behavior: "smooth",
+                            block: "end",
+                        });
+                    }
+                }, 300);
+            }
+        });
     });
 }
