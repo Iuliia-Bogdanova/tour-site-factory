@@ -347,4 +347,22 @@
 .swiper-slide.partner-slide {
     width: auto;
 }
+
+.swiper-slide.workshop-slide::after {
+    @media (min-width: 768px) {
+        z-index: -1;
+    }
+}
+
+.workshops-slider__pagination {
+    margin-top: 2.5rem;
+
+    @media (min-width: 768px) {
+        margin-top: 3.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        margin-top: 4.5rem;
+    }
+}
 /* Swiper Clients-slider & Partners-slider END */

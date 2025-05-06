@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initReviewsFilter();
     initPartnersSlider();
     initWorkshopToggle();
+    initWorkshopSlider();
 });
 
 // 1. Бургер-меню
@@ -471,7 +472,7 @@ function initWorkshopToggle() {
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
             button.blur(); // Убрать фокус чтобы не было залипания цвета
-            const slide = button.closest(".swiper-slide");
+            const slide = button.closest(".workshop-slide");
             const textBlock = slide?.querySelector(".workshop-info");
             if (!textBlock) return;
 
@@ -506,5 +507,38 @@ function initWorkshopToggle() {
                 }, 300);
             }
         });
+    });
+}
+
+// 14. Swiper workshop-slider - TODO: не сворачивает раскрытый текст при свайпе
+function initWorkshopSlider() {
+    new Swiper(".workshops-slider", {
+        loop: true,
+        initialSlide: 1,
+        slidesPerView: 1,
+        spaceBetween: 15,
+        centeredSlides: true,
+        speed: 450,
+        navigation: {
+            nextEl: ".workshops-slider-next",
+            prevEl: ".workshops-slider-prev",
+        },
+        pagination: {
+            el: ".workshops-slider-pagination",
+            clickable: true,
+            dynamicBullets: true,
+            dynamicMainBullets: 1,
+        },
+        a11y: {
+            prevSlideMessage: "Предыдущий слайд",
+            nextSlideMessage: "Следующий слайд",
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 28,
+                centeredSlides: false,
+            },
+        },
     });
 }
