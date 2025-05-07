@@ -83,6 +83,7 @@
     --color-royal-peacock: #27a6e5;
     --color-forest-maid: #48c95f;
     --color-slider-control: #494949;
+    --color--success: #248c73;
 
     --font-primary: "Raleway", sans-serif;
     --font-secondary: "Ubuntu Sans", sans-serif;
@@ -1230,10 +1231,87 @@ body.lock-scroll {
     max-height: calc(1.5em * 6);
 }
 
-/* .workshop-info.expanded {
-    display: block;
-    max-height: none;
-    max-height: 1000px; 
-} */
+/* Subscribe-form */
+.workshops-subscribe__inner {
+    background: var(--color--success);
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 
+    @media (min-width: 768px) {
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.subscribe-form {
+    padding: 1.875rem 1rem;
+
+    @media (min-width: 1024px) {
+        padding: 2rem 1rem;
+    }
+}
+
+.subscribe-title {
+    color: var(--color-secondary);
+}
+
+.subscribe-form__item {
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: end;
+        gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+.subscribe-form-input {
+    width: 100%;
+    max-width: 372px;
+    padding: 1rem;
+}
+
+.subscribe-form-input input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    outline: none;
+}
+
+.btn-subscribe__wrap {
+    @media (min-width: 768px) {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 2.5rem;
+}
+
+.custom-select-icon {
+    position: absolute;
+    top: 30%;
+    right: 2rem;
+    width: 24px;
+    height: 24px;
+    color: var(--color-font);
+    rotate: 90deg;
+    pointer-events: none;
+}
+/* Subscribe-form END*/
 /* Workshops END*/

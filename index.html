@@ -1351,7 +1351,6 @@
                                         <div class="request-form-input">
                                                 <input
                                                     type="text"
-                                                    id="name"
                                                     name="name"
                                                     required
                                                     placeholder="Имя"
@@ -1362,7 +1361,7 @@
                                                 type="tel"
                                                 name="phone"
                                                 required
-                                                autocomplete="off"
+                                                autocomplete="tel"
                                                 placeholder="Телефон"
                                             />
                                         </div>
@@ -1627,6 +1626,47 @@
                                 <div class="swiper-pagination workshops-slider-pagination no-tap-highlight"></div>
                             </div>
                         </div>
+                        <!-- Subscribe-form -->
+                        <div class="workshops-subscribe__inner pos-relative">
+                            <div class="subscribe-form d-flex flex-column gap-3">
+                                <h3 class="title-secondary subscribe-title">Запишитесь на ближайший вебинар</h3>
+                                <form class="subscribe-form__item d-flex gap-2" id="subscribe-form" action="#"
+                                    method="POST">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-3 mb-2">
+                                            <input type="text" class="subscribe-form-input"
+                                            required placeholder="Имя">
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-3 mb-2">
+                                            <input type="tel" class="subscribe-form-input"
+                                            required
+                                            autocomplete="tel"
+                                            placeholder="Телефон">
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-3 mb-2">
+                                            <input type="email" class="subscribe-form-input"
+                                            required
+                                            placeholder="Почта">
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-3 mb-2 pos-relative">
+                                            <select class="subscribe-form-input subscribe__form-select custom-select" required>
+                                                <option value="отель" selected>Сайт отеля</option>
+                                                <option value="турагентство">Сайт турагентства</option>
+                                                <option value="туроператор">Сайт туроператора</option>
+                                                <option value="лендинг">Лендинг</option>
+                                            </select>
+                                            <svg class="icon custom-select-icon" width="24" height="24">
+                                                <use href="/assets/icons/sprite.svg#icon-nose"></use>
+                                                </svg>
+                                        </div>
+                                    </div>
+                                    <div class="btn-subscribe__wrap">
+                                        <button type="submit" class="btn btn-primary btn-subscribe">Записаться</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /Subscribe-form -->
                     </div>
                 </div>
             </section>
