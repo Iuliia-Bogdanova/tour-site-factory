@@ -483,6 +483,8 @@ function initWorkshopToggle() {
 
             if (isExpanded) {
                 // Свернуть с ограничением на высоту
+                textBlock.style.maxHeight = "none"; // сброс
+                textBlock.offsetHeight; // форсировать перерасчёт
                 textBlock.style.maxHeight = collapsedHeight + "px";
             } else {
                 // Развернуть
@@ -510,7 +512,7 @@ function initWorkshopToggle() {
     });
 }
 
-// 14. Swiper workshop-slider - TODO: не сворачивает раскрытый текст при свайпе
+// 14. Swiper workshop-slider
 function initWorkshopSlider() {
     new Swiper(".workshops-slider", {
         loop: true,
@@ -538,6 +540,25 @@ function initWorkshopSlider() {
                 slidesPerView: 3,
                 spaceBetween: 28,
                 centeredSlides: false,
+            },
+        },
+        on: {
+            slideChangeTransitionStart() {
+                document
+                    .querySelectorAll(".workshop-info.expanded")
+                    .forEach((el) => {
+                        const collapsedHeight =
+                            parseFloat(getComputedStyle(el).lineHeight) * 6;
+
+                        el.classList.remove("expanded");
+                        el.classList.add("collapsed");
+                        el.style.maxHeight = collapsedHeight + "px";
+
+                        const button = el
+                            .closest(".workshop-slide")
+                            ?.querySelector(".btn-info-toggle");
+                        if (button) button.textContent = "Подробнее";
+                    });
             },
         },
     });

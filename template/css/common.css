@@ -1228,7 +1228,7 @@ body.lock-scroll {
     -webkit-line-clamp: 6;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: calc(1.5em * 6);
+    max-height: calc(1.3em * 6);
 }
 
 /* Subscribe-form */
@@ -1281,6 +1281,13 @@ body.lock-scroll {
     width: 100%;
     max-width: 372px;
     padding: 1rem;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    margin-bottom: 0.5rem;
+
+    @media (min-width: 1024px) {
+        margin-bottom: 0;
+    }
 }
 
 .subscribe-form-input input {
@@ -1294,18 +1301,26 @@ body.lock-scroll {
     @media (min-width: 768px) {
         margin-bottom: 0.5rem;
     }
+
+    @media (min-width: 1024px) {
+        margin-bottom: 0.25rem;
+    }
+}
+
+.subscribe__form-select {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
 }
 
 .custom-select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding-right: 2.5rem;
 }
 
 .custom-select-icon {
     position: absolute;
-    top: 30%;
+    top: 25%;
     right: 2rem;
     width: 24px;
     height: 24px;
