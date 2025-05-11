@@ -84,6 +84,7 @@
     --color-forest-maid: #48c95f;
     --color-slider-control: #494949;
     --color--success: #248c73;
+    --color-line: #ccccd4;
 
     --font-primary: "Raleway", sans-serif;
     --font-secondary: "Ubuntu Sans", sans-serif;
@@ -1279,7 +1280,6 @@ body.lock-scroll {
 
 .subscribe-form-input {
     width: 100%;
-    max-width: 372px;
     padding: 1rem;
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
@@ -1299,7 +1299,7 @@ body.lock-scroll {
 
 .btn-subscribe__wrap {
     @media (min-width: 768px) {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.625rem;
     }
 
     @media (min-width: 1024px) {
@@ -1330,3 +1330,47 @@ body.lock-scroll {
 }
 /* Subscribe-form END*/
 /* Workshops END*/
+
+/* FAQ */
+.faq-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.faq-line {
+    width: 100%;
+    border: 1px solid var(--color-line);
+    margin: 0.875rem 0;
+}
+
+.faq-card {
+    color: var(--color-bg-dark);
+}
+
+details summary,
+details summary::-webkit-details-marker {
+    list-style: none;
+}
+
+.faq-summary {
+    cursor: pointer;
+}
+
+.icon-faq {
+    width: 32px;
+    height: 32px;
+    color: var(--color-bg-dark);
+    backdrop-filter: blur(11.100000381469727px);
+    transition: transform var(--transition-03);
+}
+
+details[open] .icon-faq {
+    transform: rotate(45deg);
+}
+
+.faq-text {
+    margin-top: 1rem;
+}
+
+/* FAQ END */
