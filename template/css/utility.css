@@ -22,14 +22,29 @@
     text-transform: uppercase;
 }
 
+.text-underline {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
+
 .text-muted {
     font-size: var(--font-size-small);
     font-weight: 400;
     line-height: 1;
 }
 
-.hover-accent:hover {
-    color: var(--color-accent);
+@media (hover: hover) {
+    .hover-accent:hover {
+        color: var(--color-accent);
+    }
+
+    .hover-accent-08:hover {
+        color: var(--color-accent-08);
+    }
+
+    .hover-accent-05:hover {
+        color: var(--color-accent-05);
+    }
 }
 
 .bg-primary {
@@ -203,9 +218,9 @@
     line-height: var(--line-height);
 }
 
-/* .text-center {
+.text-center {
     text-align: center;
-} */
+}
 
 .fw-600 {
     font-weight: 600;
